@@ -45,13 +45,6 @@ func updateData(document):
 
 func locationInfo(locations):
 	for loc in locations:
-		if loc.name.contains("(RESTRICTED)"):
-			var button = get_child(0).duplicate()
-			add_child(button)
-			button.text = loc.name
-			var itemName = loc.name
-			button.show()
-			return
 		var button = get_child(0).duplicate()
 		add_child(button)
 		button.text = loc.name
