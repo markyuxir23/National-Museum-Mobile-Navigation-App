@@ -4759,99 +4759,87 @@ autowrap_mode = 3
 unique_name_in_owner = true
 visible = false
 
-[node name="Elevator 2 (W, 2F)" parent="2f-Locations" index="34" groups=["stairs"]]
-
-[node name="Elevator 1 (W, 2F)" parent="2f-Locations" index="35" groups=["stairs"]]
-
-[node name="Elevator 1 (E, 2F)" parent="2f-Locations" index="36" groups=["stairs"]]
-
-[node name="Elevator 2 (E, 2F)" parent="2f-Locations" index="37" groups=["stairs"]]
-
 [node name="3F-Locations" parent="." groups=["3F"] instance=ExtResource("9_uafnh")]
 unique_name_in_owner = true
 visible = false
 
-[node name="The Session Hall of the Senate" parent="3F-Locations" index="0"]
-position = Vector2(-11.5, -52)
-scale = Vector2(13.9375, 2.125)
-
-[node name="Gallery 13" parent="3F-Locations" index="7"]
+[node name="Gallery 13" parent="3F-Locations" index="0"]
 position = Vector2(586, 450)
 scale = Vector2(12, 3)
 
-[node name="Gallery 14" parent="3F-Locations" index="8"]
+[node name="Gallery 14" parent="3F-Locations" index="1"]
 position = Vector2(952.5, 445)
 scale = Vector2(13.0625, 3.625)
 
-[node name="Gallery 15" parent="3F-Locations" index="9"]
+[node name="Gallery 15" parent="3F-Locations" index="2"]
 position = Vector2(720, -72)
 scale = Vector2(12, 2.625)
 
-[node name="Gallery 16" parent="3F-Locations" index="10"]
+[node name="Gallery 16" parent="3F-Locations" index="3"]
 position = Vector2(996, -44)
 scale = Vector2(10.5, 3.125)
 
-[node name="Gallery 17" parent="3F-Locations" index="11"]
+[node name="Gallery 17" parent="3F-Locations" index="4"]
 position = Vector2(960, -568.5)
 scale = Vector2(14, 3.0625)
 
-[node name="Gallery 18" parent="3F-Locations" index="12"]
+[node name="Gallery 18" parent="3F-Locations" index="5"]
 position = Vector2(578.5, -568.5)
 scale = Vector2(13.6875, 3.0625)
 
-[node name="Gallery 19" parent="3F-Locations" index="13"]
+[node name="Gallery 19" parent="3F-Locations" index="6"]
 position = Vector2(-611, -529)
 scale = Vector2(11.625, 1.875)
 
-[node name="Gallery 20" parent="3F-Locations" index="14"]
+[node name="Gallery 20" parent="3F-Locations" index="7"]
 position = Vector2(-971.5, -568.5)
 scale = Vector2(11.4375, 3.0625)
 
-[node name="Gallery 21" parent="3F-Locations" index="15"]
+[node name="Gallery 21" parent="3F-Locations" index="8"]
 position = Vector2(-728, -37)
 scale = Vector2(11, 4)
 
-[node name="Gallery 22" parent="3F-Locations" index="16"]
+[node name="Gallery 22" parent="3F-Locations" index="9"]
 position = Vector2(-1011.5, -37)
 scale = Vector2(11.5625, 4)
 
-[node name="Gallery 23" parent="3F-Locations" index="17"]
+[node name="Gallery 23" parent="3F-Locations" index="10"]
 position = Vector2(-963.5, 450)
 scale = Vector2(12.4375, 3)
 
-[node name="Gallery 24" parent="3F-Locations" index="18"]
+[node name="Gallery 24" parent="3F-Locations" index="11"]
 position = Vector2(-596.5, 450)
 scale = Vector2(13.4375, 3)
 
-[node name="Recto Hall" parent="3F-Locations" index="19"]
+[node name="Recto Hall" parent="3F-Locations" index="12"]
 position = Vector2(6.10352e-05, -553.5)
 scale = Vector2(14, 2.9375)
 
-[node name="Manuel Roxas Hall" parent="3F-Locations" index="20"]
+[node name="Manuel Roxas Hall" parent="3F-Locations" index="13"]
 position = Vector2(6.50001, 414.5)
 scale = Vector2(16.1875, 3.5625)
 
-[node name="Male CR (W, 3F)" parent="3F-Locations" index="21"]
+[node name="Male CR (W, 3F)" parent="3F-Locations" index="14"]
 position = Vector2(-311, 447.5)
 scale = Vector2(1.4375, 9.0625)
 
-[node name="Female CR (W, 3F)" parent="3F-Locations" index="22"]
+[node name="Female CR (W, 3F)" parent="3F-Locations" index="15"]
 position = Vector2(300, 445)
 scale = Vector2(1.5, 9.375)
 
-[node name="Elevator 1 (E, 3F)" parent="3F-Locations" index="29" groups=["stairs"]]
+[node name="Elevator 1 (E, 3F)" parent="3F-Locations" index="22"]
 position = Vector2(-292.5, -347)
 scale = Vector2(3.5625, 2.25)
 
-[node name="Elevator 2 (E, 3F)" parent="3F-Locations" index="30" groups=["stairs"]]
+[node name="Elevator 2 (E, 3F)" parent="3F-Locations" index="23"]
 position = Vector2(281, -347.5)
 scale = Vector2(3.875, 2.3125)
 
-[node name="Elevator 1 (W, 3F)" parent="3F-Locations" index="31" groups=["stairs"]]
+[node name="Elevator 1 (W, 3F)" parent="3F-Locations" index="24"]
 position = Vector2(-292, 220)
 scale = Vector2(3.5, 2.5)
 
-[node name="Elevator 2 (W, 3F)" parent="3F-Locations" index="32" groups=["stairs"]]
+[node name="Elevator 2 (W, 3F)" parent="3F-Locations" index="25"]
 position = Vector2(280, 222.5)
 scale = Vector2(4, 2.5625)
 
