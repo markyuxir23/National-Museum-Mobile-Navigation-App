@@ -1,0 +1,65 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="THESIS (v2)"
+run/main_scene="res://DATABASE assets/LOGIN SYSTEM/Authentication.tscn"
+config/features=PackedStringArray("4.2", "Mobile")
+config/icon="res://NMFA/icon.svg"
+
+[autoload]
+
+Globals="*res://NMFA/scripts/Singletons/Globals.gd"
+StaticDatabase="*res://NMFA/scripts/Singletons/StaticDatabase.gd"
+GlobalsNMA="*res://NMA/scripts/Singletons/Globals.gd"
+StaticDatabaseNMA="*res://NMA/scripts/Singletons/StaticDatabase.gd"
+Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
+DbGlobals="*res://DBGlobals.gd"
+
+[display]
+
+window/size/viewport_width=1080
+window/size/viewport_height=2400
+window/stretch/mode="canvas_items"
+window/handheld/orientation=1
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/GodotGetImage/plugin.cfg", "res://addons/godot-firebase/plugin.cfg", "res://addons/http-sse-client/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://DATABASE assets/": "purple",
+"res://DATABASE assets/HOMEPAGE/": "yellow",
+"res://DATABASE assets/LOGIN SYSTEM/": "orange",
+"res://NMA/": "red",
+"res://addons/": "gray"
+}
+
+[input]
+
+move={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0.952941, 0.929412, 0.784314, 1)

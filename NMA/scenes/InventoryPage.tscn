@@ -1,0 +1,294 @@
+[gd_scene load_steps=15 format=3 uid="uid://dfwqnoj2hdfsr"]
+
+[ext_resource type="Theme" uid="uid://crjmlubq414bj" path="res://NMFA/themes/InfoPanelTheme.tres" id="1_1o5si"]
+[ext_resource type="Script" path="res://NMA/scripts/InventoryPage.gd" id="2_0cbm1"]
+[ext_resource type="PackedScene" uid="uid://djbpxpa047qip" path="res://NMA/scenes/artwork_card.tscn" id="3_acg70"]
+[ext_resource type="Texture2D" uid="uid://uty7hhthws0y" path="res://NMA/assets/sample pic.jpg" id="4_ygv10"]
+[ext_resource type="Theme" uid="uid://ca04mjaqf4pym" path="res://NMFA/themes/IP_NoBordersButtonTheme.tres" id="5_k451h"]
+[ext_resource type="Theme" uid="uid://x1am6muet8c0" path="res://NMFA/themes/InventoryPageButtonTheme.tres" id="6_r3wcw"]
+[ext_resource type="Texture2D" uid="uid://c7kayfa7kw5rw" path="res://NMFA/assets/left icon.png" id="7_nxjoe"]
+[ext_resource type="Texture2D" uid="uid://cv51i5fcnfdgv" path="res://NMFA/assets/right icon.png" id="8_7mbj7"]
+[ext_resource type="Texture2D" uid="uid://dn2fc36q4ve8j" path="res://icons8-arrow-left-100.png" id="9_we167"]
+[ext_resource type="Texture2D" uid="uid://cajsp0tf8r6v2" path="res://icons8-arrow-right-100.png" id="10_ax8o5"]
+
+[sub_resource type="Theme" id="Theme_1os2d"]
+Button/font_sizes/font_size = 100
+
+[sub_resource type="Theme" id="Theme_d0jek"]
+Button/font_sizes/font_size = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c400q"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+bg_color = Color(0.705882, 0.482353, 0.517647, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_dm1ew"]
+Button/font_sizes/font_size = 40
+Button/styles/hover = SubResource("StyleBoxFlat_c400q")
+Button/styles/normal = SubResource("StyleBoxFlat_c400q")
+Button/styles/pressed = SubResource("StyleBoxFlat_c400q")
+
+[node name="InventoryPage" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_1o5si")
+script = ExtResource("2_0cbm1")
+artCardScene = ExtResource("3_acg70")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.992157, 0.901961, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Top UI" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.08
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Top UI"]
+layout_mode = 2
+
+[node name="ReturnButton" type="Button" parent="VBoxContainer/Top UI/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.15
+theme_override_font_sizes/font_size = 80
+text = "<"
+
+[node name="FloorLabel" type="Label" parent="VBoxContainer/Top UI/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Fine Arts
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.85
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="Gallery Card" type="PanelContainer" parent="VBoxContainer/CardContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/CardContainer/Gallery Card"]
+layout_mode = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 120
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/CardContainer/Gallery Card/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/CardContainer/Gallery Card/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("4_ygv10")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="VBoxContainer/CardContainer/Gallery Card/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/CardContainer/Gallery Card/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+alignment = 1
+
+[node name="Control" type="Control" parent="VBoxContainer/CardContainer/Gallery Card/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="See on Map" type="Button" parent="VBoxContainer/CardContainer/Gallery Card/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+theme = ExtResource("5_k451h")
+text = "See on Map"
+
+[node name="Control2" type="Control" parent="VBoxContainer/CardContainer/Gallery Card/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="ArtworksCardsContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.35
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/ArtworksCardsContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="ArtsCardContainer" type="HBoxContainer" parent="VBoxContainer/ArtworksCardsContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 95.0
+offset_bottom = 145.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_1os2d")
+
+[node name="VSeparator3" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.03
+
+[node name="Left" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("6_r3wcw")
+icon = ExtResource("7_nxjoe")
+icon_alignment = 1
+
+[node name="GalleryLabel" type="Label" parent="HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 120)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+theme_override_font_sizes/font_size = 45
+text = "Gallery Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Right" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("6_r3wcw")
+icon = ExtResource("8_7mbj7")
+icon_alignment = 1
+
+[node name="VSeparator2" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.03
+
+[node name="FloorNext" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -150.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_d0jek")
+
+[node name="VSeparator3" type="Control" parent="FloorNext"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.03
+
+[node name="LeftFloor" type="Button" parent="FloorNext"]
+layout_mode = 2
+theme = SubResource("Theme_dm1ew")
+text = "Prev Floor"
+icon = ExtResource("9_we167")
+alignment = 2
+
+[node name="LabelSeparator" type="Label" parent="FloorNext"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 45
+text = "
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RightFloor" type="Button" parent="FloorNext"]
+layout_mode = 2
+theme = SubResource("Theme_dm1ew")
+text = "Next Floor"
+icon = ExtResource("10_ax8o5")
+alignment = 0
+icon_alignment = 2
+
+[node name="VSeparator2" type="Control" parent="FloorNext"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.03
+
+[node name="NoticeLabel" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -266.5
+offset_top = -400.0
+offset_right = 266.5
+offset_bottom = -352.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 0
+text = "TEMPORARILY CLOSED"
+
+[connection signal="pressed" from="VBoxContainer/Top UI/HBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/CardContainer/Gallery Card/MarginContainer/VBoxContainer/HBoxContainer/See on Map" to="." method="_on_see_on_map_pressed"]
+[connection signal="pressed" from="HBoxContainer/Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="HBoxContainer/Right" to="." method="_on_right_pressed"]
+[connection signal="pressed" from="FloorNext/LeftFloor" to="." method="_on_left_floor_pressed"]
+[connection signal="pressed" from="FloorNext/RightFloor" to="." method="_on_right_floor_pressed"]

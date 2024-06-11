@@ -1,0 +1,197 @@
+[gd_scene load_steps=10 format=3 uid="uid://d0df4wmptpgnp"]
+
+[ext_resource type="Texture2D" uid="uid://p8q87hriyp1t" path="res://NMFA/assets/sample pic.jpg" id="1_n5xji"]
+[ext_resource type="Texture2D" uid="uid://bwkx2o5buf1ii" path="res://NMFA/assets/info icon.png" id="2_0j71k"]
+[ext_resource type="Script" path="res://NMFA/scripts/ArtworkCard.gd" id="2_3j3sg"]
+[ext_resource type="Texture2D" uid="uid://bpgihosg2ugff" path="res://NMFA/assets/info icon black.png" id="3_csopc"]
+[ext_resource type="Texture2D" uid="uid://c8o5kcvo0wjbc" path="res://NMFA/assets/xmark-solid.svg" id="4_d0mb4"]
+[ext_resource type="Texture2D" uid="uid://c1qp0oxwiloqt" path="res://heart outline.png" id="4_pcc5c"]
+[ext_resource type="Texture2D" uid="uid://gblfum0bsph6" path="res://heart.png" id="5_7yvcp"]
+[ext_resource type="Texture2D" uid="uid://dmijxtb4qsy35" path="res://dislike.png" id="6_i0km7"]
+[ext_resource type="FontFile" uid="uid://bf71avij7roaf" path="res://NMFA/themes/FONTS/Minion/minionexp-semibolditalic.otf" id="6_vnod6"]
+
+[node name="ArtworkCard" type="MarginContainer"]
+size_flags_horizontal = 3
+script = ExtResource("2_3j3sg")
+
+[node name="ArtInfoPanel" type="PanelContainer" parent="."]
+show_behind_parent = true
+custom_minimum_size = Vector2(555, 555)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="ArtInfoPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ArtInfoPanel/MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ArtInfoPanel/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ArtInfoPanel/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="ArtInfoPanel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 8.0
+
+[node name="Button" type="TextureButton" parent="ArtInfoPanel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("4_d0mb4")
+texture_pressed = ExtResource("4_d0mb4")
+texture_hover = ExtResource("4_d0mb4")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ArtInfoPanel/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="ArtInfoPanel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("6_vnod6")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+text_overrun_behavior = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="ArtInfoPanel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ArtInfoPanel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Recommend" type="TextureButton" parent="ArtInfoPanel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+toggle_mode = true
+texture_normal = ExtResource("4_pcc5c")
+texture_pressed = ExtResource("5_7yvcp")
+stretch_mode = 5
+
+[node name="RemoveRecom" type="TextureButton" parent="ArtInfoPanel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+texture_normal = ExtResource("6_i0km7")
+stretch_mode = 5
+
+[node name="Control2" type="Control" parent="ArtInfoPanel/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="Artist" type="Label" parent="ArtInfoPanel/MarginContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(555, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.75
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Date" type="Label" parent="ArtInfoPanel/MarginContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(555, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.75
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Place" type="Label" parent="ArtInfoPanel/MarginContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(555, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.75
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Type" type="Label" parent="ArtInfoPanel/MarginContainer/ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(555, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.75
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Artwork" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = ExtResource("1_n5xji")
+expand_mode = 3
+
+[node name="InfoButton" type="TextureButton" parent="Artwork"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 513.0
+offset_top = 25.0
+offset_right = -20.0
+offset_bottom = -447.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_0j71k")
+texture_pressed = ExtResource("3_csopc")
+texture_hover = ExtResource("3_csopc")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="CountLabel" type="Label" parent="Artwork"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 25.0
+offset_top = 452.0
+offset_right = 71.0
+offset_bottom = 562.0
+theme_override_font_sizes/font_size = 80
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="ArtInfoPanel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ArtInfoPanel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/Recommend" to="." method="_on_recommend_pressed"]
+[connection signal="pressed" from="ArtInfoPanel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/RemoveRecom" to="." method="_on_remove_recom_pressed"]
+[connection signal="pressed" from="Artwork/InfoButton" to="." method="_on_info_button_pressed"]

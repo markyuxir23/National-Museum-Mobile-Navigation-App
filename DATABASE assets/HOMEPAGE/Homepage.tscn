@@ -1,0 +1,709 @@
+[gd_scene load_steps=28 format=3 uid="uid://bgt80utxk6twh"]
+
+[ext_resource type="Theme" uid="uid://crjmlubq414bj" path="res://NMFA/themes/InfoPanelTheme.tres" id="1_ldbur"]
+[ext_resource type="Texture2D" uid="uid://0ix5p8tondfg" path="res://DATABASE assets/HOMEPAGE/assets/natlmuseum_logo-removebg-preview.png" id="2_0m4jm"]
+[ext_resource type="Script" path="res://DATABASE assets/HOMEPAGE/Homepage.gd" id="2_vv4jk"]
+[ext_resource type="Texture2D" uid="uid://p8q87hriyp1t" path="res://NMFA/assets/sample pic.jpg" id="3_lbaks"]
+[ext_resource type="Texture2D" uid="uid://lmb0rphwjy6p" path="res://DATABASE assets/HOMEPAGE/assets/pfp.jpg" id="3_u8vio"]
+[ext_resource type="Texture2D" uid="uid://cykvr3phljhqq" path="res://DATABASE assets/HOMEPAGE/assets/navi icon.svg" id="6_7x3n1"]
+[ext_resource type="Texture2D" uid="uid://tclbkt3do4g2" path="res://DATABASE assets/HOMEPAGE/assets/magnifying-glass-solid.svg" id="7_giwwi"]
+[ext_resource type="Texture2D" uid="uid://uty7hhthws0y" path="res://NMA/assets/sample pic.jpg" id="8_l7kki"]
+[ext_resource type="Texture2D" uid="uid://c8o5kcvo0wjbc" path="res://NMFA/assets/xmark-solid.svg" id="9_b88ne"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rvd8"]
+bg_color = Color(0.427451, 0.160784, 0.196078, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ak6e"]
+corner_radius_top_left = 500
+corner_radius_top_right = 500
+corner_radius_bottom_right = 500
+corner_radius_bottom_left = 500
+corner_detail = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_drwge"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.427451, 0.160784, 0.196078, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_c8ekd"]
+Button/styles/hover = SubResource("StyleBoxFlat_drwge")
+Button/styles/normal = SubResource("StyleBoxFlat_drwge")
+Button/styles/pressed = SubResource("StyleBoxFlat_drwge")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aspis"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.592157, 0.2, 0.231373, 1)
+
+[sub_resource type="Theme" id="Theme_5xj0a"]
+Button/styles/normal = SubResource("StyleBoxFlat_aspis")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tecg1"]
+bg_color = Color(0.592157, 0.2, 0.231373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1mrxl"]
+bg_color = Color(0.807843, 0.34902, 0.34902, 1)
+
+[sub_resource type="Theme" id="Theme_sb2i2"]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_tecg1")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_1mrxl")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f0bbg"]
+content_margin_top = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Theme" id="Theme_5crme"]
+Label/styles/normal = SubResource("StyleBoxFlat_f0bbg")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xpajc"]
+bg_color = Color(0.666667, 0.168627, 0.113725, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Theme" id="Theme_b1ke6"]
+Button/styles/normal = SubResource("StyleBoxFlat_xpajc")
+Button/styles/pressed = SubResource("StyleBoxFlat_xpajc")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6biq"]
+bg_color = Color(0.807843, 0.34902, 0.34902, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_lrecl"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_r6biq")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ri7be"]
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fqqn4"]
+content_margin_left = 50.0
+content_margin_top = 50.0
+content_margin_right = 50.0
+content_margin_bottom = 50.0
+bg_color = Color(0.427451, 0.160784, 0.196078, 1)
+
+[sub_resource type="Theme" id="Theme_kvor6"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_fqqn4")
+
+[node name="Homepage" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ldbur")
+script = ExtResource("2_vv4jk")
+
+[node name="LoadingScreen" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
+top_level = true
+layout_mode = 0
+offset_top = 253.0
+offset_right = 1080.0
+offset_bottom = 2397.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.992157, 0.901961, 1)
+
+[node name="Label" type="Label" parent="LoadingScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "LOADING..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.992157, 0.901961, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BannerPanel" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+theme_override_styles/panel = SubResource("StyleBoxFlat_1rvd8")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/BannerPanel"]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BannerPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/BannerPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/BannerPanel/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("2_0m4jm")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/BannerPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HomepageLabel" type="Label" parent="VBoxContainer/BannerPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+text = "National Museum Navigation App"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Body" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.85
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Body"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="ProfileImageContainer" type="MarginContainer" parent="VBoxContainer/Body/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 110
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 110
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/Body/VBoxContainer/ProfileImageContainer"]
+clip_children = 1
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.8
+theme_override_styles/panel = SubResource("StyleBoxFlat_3ak6e")
+
+[node name="ProfilePicture" type="TextureRect" parent="VBoxContainer/Body/VBoxContainer/ProfileImageContainer/PanelContainer"]
+clip_children = 1
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_u8vio")
+expand_mode = 1
+
+[node name="UNContainer" type="HBoxContainer" parent="VBoxContainer/Body/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="Control" type="Control" parent="VBoxContainer/Body/VBoxContainer/UNContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="UserNameLabel" type="Label" parent="VBoxContainer/Body/VBoxContainer/UNContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.85
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 80
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="VBoxContainer/Body/VBoxContainer/UNContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Tabs" type="MarginContainer" parent="VBoxContainer/Body/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 50
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer/Body/VBoxContainer/Tabs"]
+unique_name_in_owner = true
+layout_mode = 2
+tab_alignment = 1
+
+[node name="Profile Info" type="TabBar" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer"]
+layout_mode = 2
+tab_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info/MarginContainer"]
+layout_mode = 2
+
+[node name="ChangePasswordField" type="MarginContainer" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info/MarginContainer/VBoxContainer/ChangePasswordField"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.03
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info/MarginContainer/VBoxContainer/ChangePasswordField/HBoxContainer"]
+custom_minimum_size = Vector2(100, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Change Admin Passcode: "
+vertical_alignment = 1
+
+[node name="PasscodeLineEdit" type="LineEdit" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info/MarginContainer/VBoxContainer/ChangePasswordField/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="UpdatePasscodeButton" type="Button" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info/MarginContainer/VBoxContainer/ChangePasswordField/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = SubResource("Theme_c8ekd")
+text = "Submit"
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 60
+
+[node name="ProgressBars" type="VBoxContainer" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info/MarginContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Update" type="Button" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info/MarginContainer/VBoxContainer/MarginContainer/ProgressBars"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_5xj0a")
+text = "UPDATE PROGRESS BARS"
+
+[node name="NMFALabel" type="Label" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info/MarginContainer/VBoxContainer/MarginContainer/ProgressBars"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 40
+text = "NATIONAL MUSEUM OF FINE ARTS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NMFAPB" type="HBoxContainer" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info/MarginContainer/VBoxContainer/MarginContainer/ProgressBars"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info/MarginContainer/VBoxContainer/MarginContainer/ProgressBars/NMFAPB"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NMFAProgress" type="ProgressBar" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info/MarginContainer/VBoxContainer/MarginContainer/ProgressBars/NMFAPB/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_sb2i2")
+theme_override_font_sizes/font_size = 30
+
+[node name="Label" type="Label" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info/MarginContainer/VBoxContainer/MarginContainer/ProgressBars/NMFAPB/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_5crme")
+theme_override_font_sizes/font_size = 30
+text = "Visitation Progress"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NMALabel" type="Label" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info/MarginContainer/VBoxContainer/MarginContainer/ProgressBars"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 40
+text = "NATIONAL MUSEUM OF ANTHROPOLOGY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NMAPB" type="HBoxContainer" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info/MarginContainer/VBoxContainer/MarginContainer/ProgressBars"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info/MarginContainer/VBoxContainer/MarginContainer/ProgressBars/NMAPB"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NMAProgress" type="ProgressBar" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info/MarginContainer/VBoxContainer/MarginContainer/ProgressBars/NMAPB/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_sb2i2")
+theme_override_font_sizes/font_size = 30
+
+[node name="Label" type="Label" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info/MarginContainer/VBoxContainer/MarginContainer/ProgressBars/NMAPB/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_5crme")
+theme_override_font_sizes/font_size = 30
+text = "Visitation Progress"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UserVisitations" type="ScrollContainer" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info/MarginContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info/MarginContainer/VBoxContainer/MarginContainer/UserVisitations"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info/MarginContainer/VBoxContainer/MarginContainer/UserVisitations/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+theme_override_font_sizes/font_size = 45
+text = "Users and Visitation Progress"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Users" type="Label" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info/MarginContainer/VBoxContainer/MarginContainer/UserVisitations/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 45
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_bottom = 50
+
+[node name="BottomButtons" type="HBoxContainer" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info/MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+
+[node name="Control2" type="Control" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info/MarginContainer/VBoxContainer/MarginContainer2/BottomButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="Log Out" type="Button" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info/MarginContainer/VBoxContainer/MarginContainer2/BottomButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.75
+theme = SubResource("Theme_b1ke6")
+text = "Log Out"
+
+[node name="Control3" type="Control" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info/MarginContainer/VBoxContainer/MarginContainer2/BottomButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="Explore" type="TabBar" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+tab_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_bottom = 150
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer"]
+layout_mode = 2
+
+[node name="Museums" type="MarginContainer" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.6
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer/VBoxContainer/Museums"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+theme_override_constants/separation = 30
+
+[node name="NMFA Card" type="PanelContainer" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer/VBoxContainer/Museums/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_lrecl")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer/VBoxContainer/Museums/HBoxContainer/NMFA Card"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer/VBoxContainer/Museums/HBoxContainer/NMFA Card/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="MarginContainer" type="PanelContainer" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer/VBoxContainer/Museums/HBoxContainer/NMFA Card/MarginContainer/VBoxContainer"]
+clip_children = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ri7be")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer/VBoxContainer/Museums/HBoxContainer/NMFA Card/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_lbaks")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer/VBoxContainer/Museums/HBoxContainer/NMFA Card/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "National Museum of Fine Arts"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ExploreButtonsNMFA" type="HBoxContainer" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer/VBoxContainer/Museums/HBoxContainer/NMFA Card/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+theme_override_constants/separation = 10
+
+[node name="NMFAExplore" type="Button" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer/VBoxContainer/Museums/HBoxContainer/NMFA Card/MarginContainer/VBoxContainer/ExploreButtonsNMFA"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "
+"
+icon = ExtResource("6_7x3n1")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="NMFAInventory" type="Button" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer/VBoxContainer/Museums/HBoxContainer/NMFA Card/MarginContainer/VBoxContainer/ExploreButtonsNMFA"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "
+"
+icon = ExtResource("7_giwwi")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="EditNMFA" type="Button" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer/VBoxContainer/Museums/HBoxContainer/NMFA Card/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+text = "EDIT
+"
+
+[node name="NMA Card" type="PanelContainer" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer/VBoxContainer/Museums/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_lrecl")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer/VBoxContainer/Museums/HBoxContainer/NMA Card"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer/VBoxContainer/Museums/HBoxContainer/NMA Card/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="MarginContainer" type="PanelContainer" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer/VBoxContainer/Museums/HBoxContainer/NMA Card/MarginContainer/VBoxContainer"]
+clip_children = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_ri7be")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer/VBoxContainer/Museums/HBoxContainer/NMA Card/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("8_l7kki")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer/VBoxContainer/Museums/HBoxContainer/NMA Card/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "National Museum of Anthropology"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ExploreButtonsNMA" type="HBoxContainer" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer/VBoxContainer/Museums/HBoxContainer/NMA Card/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+theme_override_constants/separation = 10
+
+[node name="NMAExplore" type="Button" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer/VBoxContainer/Museums/HBoxContainer/NMA Card/MarginContainer/VBoxContainer/ExploreButtonsNMA"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "
+"
+icon = ExtResource("6_7x3n1")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="NMAInventory" type="Button" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer/VBoxContainer/Museums/HBoxContainer/NMA Card/MarginContainer/VBoxContainer/ExploreButtonsNMA"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "
+"
+icon = ExtResource("7_giwwi")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="EditNMA" type="Button" parent="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer/VBoxContainer/Museums/HBoxContainer/NMA Card/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+text = "EDIT
+"
+
+[node name="SearchBG" type="MarginContainer" parent="VBoxContainer/Body"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer/Body/SearchBG"]
+layout_mode = 2
+
+[node name="SearchScene" type="MarginContainer" parent="VBoxContainer/Body"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/Body/SearchScene"]
+modulate = Color(1, 1, 1, 0.921569)
+layout_mode = 2
+theme = SubResource("Theme_kvor6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Body/SearchScene/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.04
+
+[node name="Control" type="Control" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.85
+
+[node name="Close" type="Button" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.15
+icon = ExtResource("9_b88ne")
+icon_alignment = 1
+expand_icon = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.8
+
+[node name="GalleryScroll" type="VBoxContainer" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="tab_changed" from="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer" to="." method="_on_tab_container_tab_changed"]
+[connection signal="pressed" from="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info/MarginContainer/VBoxContainer/ChangePasswordField/HBoxContainer/UpdatePasscodeButton" to="." method="_on_update_passcode_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info/MarginContainer/VBoxContainer/MarginContainer/ProgressBars/Update" to="." method="_on_update_pressed"]
+[connection signal="pressed" from="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Profile Info/MarginContainer/VBoxContainer/MarginContainer2/BottomButtons/Log Out" to="." method="_on_log_out_pressed"]
+[connection signal="pressed" from="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer/VBoxContainer/Museums/HBoxContainer/NMFA Card/MarginContainer/VBoxContainer/ExploreButtonsNMFA/NMFAExplore" to="." method="_on_nmfa_explore_pressed"]
+[connection signal="pressed" from="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer/VBoxContainer/Museums/HBoxContainer/NMFA Card/MarginContainer/VBoxContainer/ExploreButtonsNMFA/NMFAInventory" to="." method="_on_nmfa_inventory_pressed"]
+[connection signal="pressed" from="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer/VBoxContainer/Museums/HBoxContainer/NMFA Card/MarginContainer/VBoxContainer/EditNMFA" to="." method="_on_edit_nmfa_pressed"]
+[connection signal="pressed" from="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer/VBoxContainer/Museums/HBoxContainer/NMA Card/MarginContainer/VBoxContainer/ExploreButtonsNMA/NMAExplore" to="." method="_on_nma_explore_pressed"]
+[connection signal="pressed" from="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer/VBoxContainer/Museums/HBoxContainer/NMA Card/MarginContainer/VBoxContainer/ExploreButtonsNMA/NMAInventory" to="." method="_on_nma_inventory_pressed"]
+[connection signal="pressed" from="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer/VBoxContainer/Museums/HBoxContainer/NMA Card/MarginContainer/VBoxContainer/EditNMA" to="." method="_on_edit_nma_pressed"]
+[connection signal="pressed" from="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/HBoxContainer/Close" to="." method="_on_close_pressed"]

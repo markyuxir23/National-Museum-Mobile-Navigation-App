@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5c30ytoxyhyk"]
+
+[ext_resource type="Script" path="res://NMFA/scripts/StartLocations.gd" id="1_ykq4l"]
+
+[node name="MarginContainer" type="MarginContainer"]
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+script = ExtResource("1_ykq4l")

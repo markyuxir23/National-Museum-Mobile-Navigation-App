@@ -1,0 +1,21 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://74tkkt5fgk3"]
+
+[ext_resource type="FontFile" uid="uid://b67fdtllo387c" path="res://NMFA/themes/FONTS/Minion/Minion Cyrillic Semibold.otf" id="1_uiuy3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gysow"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 5
+border_color = Color(0.705882, 0.482353, 0.517647, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dp4an"]
+bg_color = Color(0.705882, 0.482353, 0.517647, 1)
+
+[resource]
+default_font = ExtResource("1_uiuy3")
+default_font_size = 40
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = SubResource("StyleBoxFlat_gysow")
+Button/styles/pressed = SubResource("StyleBoxFlat_dp4an")

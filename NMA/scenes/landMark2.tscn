@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ba0742ugx7v7d"]
+
+[ext_resource type="Texture2D" uid="uid://rxdtr4bduvsm" path="res://NMA/assets/untapped lm icon.png" id="1_o1eel"]
+
+[node name="Node2D" type="Sprite2D"]
+scale = Vector2(0.69375, 0.69375)
+texture = ExtResource("1_o1eel")

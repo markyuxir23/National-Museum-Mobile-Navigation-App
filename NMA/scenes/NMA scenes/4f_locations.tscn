@@ -1,0 +1,93 @@
+[gd_scene load_steps=4 format=3 uid="uid://df63p10tvbl51"]
+
+[ext_resource type="Texture2D" uid="uid://bobhhtebjmbnn" path="res://NMFA/icon.svg" id="1_3jupp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmk1l"]
+atlas = ExtResource("1_3jupp")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgujp"]
+atlas = ExtResource("1_3jupp")
+region = Rect2(48, 32, 16, 16)
+
+[node name="4F-Locations" type="Node2D" groups=["4F"]]
+
+[node name="Gallery 7 (Rice, Biodiversity, and Climate Change)" type="Sprite2D" parent="." groups=["2F", "4F", "gallery"]]
+position = Vector2(-816, -131.5)
+scale = Vector2(14.5, 6.6875)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Gallery 8 (Hibla ng Lahing Filipino Gallery)" type="Sprite2D" parent="." groups=["2F", "4F", "gallery"]]
+position = Vector2(-126, -675.25)
+scale = Vector2(26.75, 2.65625)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Gallery 9 (Entwined Spheres Gallery)" type="Sprite2D" parent="." groups=["2F", "4F", "gallery"]]
+position = Vector2(466.5, 107)
+scale = Vector2(14.5625, 3.75)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Baybayin Gallery" type="Sprite2D" parent="." groups=["2F", "4F", "gallery"]]
+position = Vector2(709, -544.875)
+scale = Vector2(8.375, 3.76562)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Male CR (by the Twin Stairways, 4F)" type="Sprite2D" parent="." groups=["2F", "4F", "CR"]]
+position = Vector2(256, 447)
+rotation = -1.57079
+scale = Vector2(1.91577, 5.95777)
+texture = SubResource("AtlasTexture_mgujp")
+
+[node name="Male CR (Near the Baybayin Gallery, 4F)" type="Sprite2D" parent="." groups=["2F", "4F", "CR"]]
+position = Vector2(477, -640.311)
+rotation = -1.57079
+scale = Vector2(6.87695, 2.62472)
+texture = SubResource("AtlasTexture_mgujp")
+
+[node name="Female CR (by the Twin Stairways, 4F)" type="Sprite2D" parent="." groups=["2F", "4F", "CR"]]
+position = Vector2(-848, 336)
+rotation = -1.57079
+scale = Vector2(1.91577, 5.95777)
+texture = SubResource("AtlasTexture_mgujp")
+
+[node name="Female CR (Near the Baybayin Gallery, 4F)" type="Sprite2D" parent="." groups=["2F", "4F", "CR"]]
+position = Vector2(688, -304)
+rotation = -1.57079
+scale = Vector2(1.91577, 5.95777)
+texture = SubResource("AtlasTexture_mgujp")
+
+[node name="Curved Stairway (4F)" type="Sprite2D" parent="." groups=["2F", "4F", "stairs"]]
+position = Vector2(360, -341)
+rotation = -1.57079
+scale = Vector2(1.91577, 2.64151)
+texture = SubResource("AtlasTexture_mgujp")
+
+[node name="Single Stairway (4F)" type="Sprite2D" parent="." groups=["2F", "4F", "stairs"]]
+position = Vector2(-640.018, -652.504)
+rotation = -1.57079
+scale = Vector2(5.35375, 1.97106)
+texture = SubResource("AtlasTexture_mgujp")
+
+[node name="Twin Stairways 1 (4F)" type="Sprite2D" parent="." groups=["2F", "4F", "stairs"]]
+position = Vector2(-801, 475)
+rotation = -1.57079
+scale = Vector2(1.91577, 5.95777)
+texture = SubResource("AtlasTexture_mgujp")
+
+[node name="Twin Stairways 2 (4F)" type="Sprite2D" parent="." groups=["2F", "4F", "stairs"]]
+position = Vector2(111, 576)
+rotation = -1.57079
+scale = Vector2(1.91577, 5.95777)
+texture = SubResource("AtlasTexture_mgujp")
+
+[node name="Elevator (4F)" type="Sprite2D" parent="." groups=["2F", "4F", "stairs"]]
+position = Vector2(73, 686)
+rotation = -1.57079
+scale = Vector2(1.91577, 2.4483)
+texture = SubResource("AtlasTexture_mgujp")
+
+[node name="Twin Elevators (4F)" type="Sprite2D" parent="." groups=["2F", "4F", "stairs"]]
+position = Vector2(-528, 228)
+rotation = -1.57079
+scale = Vector2(1.91577, 2.4483)
+texture = SubResource("AtlasTexture_mgujp")

@@ -1,0 +1,220 @@
+[gd_scene load_steps=8 format=3 uid="uid://1ta2m46btxxt"]
+
+[ext_resource type="Script" path="res://NMFA/scripts/GalleryInfoPanel.gd" id="1_11oj5"]
+[ext_resource type="Texture2D" uid="uid://p8q87hriyp1t" path="res://NMFA/assets/sample pic.jpg" id="1_pf6fg"]
+[ext_resource type="Theme" uid="uid://crjmlubq414bj" path="res://NMFA/themes/InfoPanelTheme.tres" id="1_s723y"]
+[ext_resource type="PackedScene" uid="uid://bbuo8fd3qnvdy" path="res://NMFA/scenes/NMFA scenes/NMFA-2F.tscn" id="4_5ckkl"]
+[ext_resource type="PackedScene" uid="uid://0ck1d1re530q" path="res://NMFA/scenes/artwork.tscn" id="5_ca3ig"]
+[ext_resource type="PackedScene" uid="uid://ccmt7yb5fvkje" path="res://NMFA/scenes/NMFA scenes/NMFA-3F.tscn" id="5_qoupw"]
+[ext_resource type="PackedScene" uid="uid://bdbtg6pdhur2h" path="res://NMFA/scenes/NMFA scenes/NMFA-4F.tscn" id="6_de3hh"]
+
+[node name="GalleryInfoPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_s723y")
+script = ExtResource("1_11oj5")
+artworkScene = ExtResource("5_ca3ig")
+_2FScene = ExtResource("4_5ckkl")
+_3FScene = ExtResource("5_qoupw")
+_4FScene = ExtResource("6_de3hh")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.992157, 0.901961, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ReturnButton" type="Button" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.15
+theme_override_font_sizes/font_size = 80
+text = "<"
+
+[node name="GalleryLabel" type="Label" parent="VBoxContainer/PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "GALLERY NAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.85
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.65
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 70
+theme_override_constants/margin_bottom = 30
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+stretch_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer/AspectRatioContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_pf6fg")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+theme_override_constants/separation = 30
+
+[node name="Control" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SeeOnMap" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.85
+text = "See on Map"
+
+[node name="Visited" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.85
+text = "Visited
+"
+
+[node name="Unvisit" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.85
+text = "Remove from Visited"
+
+[node name="Control2" type="Control" parent="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 50
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+tab_alignment = 1
+current_tab = 1
+
+[node name="Info" type="TabBar" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/TabContainer"]
+visible = false
+layout_mode = 2
+tab_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/TabContainer/Info"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_right = 0.95
+anchor_bottom = 1.0
+offset_top = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="HallnameLabel" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/TabContainer/Info/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.01
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="InfoLabel" type="Label" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/TabContainer/Info/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Art Works" type="TabBar" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/TabContainer"]
+layout_mode = 2
+
+[node name="SearchBar" type="LineEdit" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/TabContainer/Art Works"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 68.0
+offset_right = 889.0
+offset_bottom = 124.0
+placeholder_text = "    Search here ..."
+alignment = 1
+select_all_on_focus = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/TabContainer/Art Works"]
+layout_mode = 2
+offset_left = 48.0
+offset_top = 164.0
+offset_right = 872.0
+offset_bottom = 1100.0
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 3
+
+[node name="ArtworkContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/TabContainer/Art Works/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 30
+
+[connection signal="pressed" from="VBoxContainer/PanelContainer/HBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/SeeOnMap" to="." method="_on_see_on_map_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/Visited" to="." method="_on_visited_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/Unvisit" to="." method="_on_unvisit_pressed"]
+[connection signal="text_changed" from="VBoxContainer/MarginContainer/VBoxContainer/MarginContainer2/TabContainer/Art Works/SearchBar" to="." method="_on_search_bar_text_changed"]

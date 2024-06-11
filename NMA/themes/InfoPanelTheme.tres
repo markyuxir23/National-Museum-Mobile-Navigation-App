@@ -1,0 +1,91 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://boodarffny2j0"]
+
+[ext_resource type="FontFile" uid="uid://b67fdtllo387c" path="res://NMFA/themes/FONTS/Minion/Minion Cyrillic Semibold.otf" id="1_xwrqe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o8p6j"]
+bg_color = Color(0.427451, 0.160784, 0.196078, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_53mgo"]
+bg_color = Color(0.705882, 0.482353, 0.517647, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gglg3"]
+bg_color = Color(0.705882, 0.482353, 0.517647, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u4im5"]
+bg_color = Color(0.917647, 0.819608, 0.588235, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbcnc"]
+bg_color = Color(0.427451, 0.160784, 0.196078, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tr26a"]
+bg_color = Color(0.427451, 0.160784, 0.196078, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dxfm4"]
+content_margin_left = 50.0
+content_margin_right = 50.0
+bg_color = Color(0.427451, 0.160784, 0.196078, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+expand_margin_left = 50.0
+expand_margin_top = 20.0
+expand_margin_right = 50.0
+
+[resource]
+Button/font_sizes/font_size = 35
+Button/fonts/font = ExtResource("1_xwrqe")
+Button/styles/normal = SubResource("StyleBoxFlat_o8p6j")
+Button/styles/pressed = SubResource("StyleBoxFlat_53mgo")
+Label/colors/font_color = Color(1, 0.992157, 0.901961, 1)
+Label/colors/font_outline_color = Color(1, 0.992157, 0.901961, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/font_sizes/font_size = 50
+Label/fonts/font = ExtResource("1_xwrqe")
+LineEdit/colors/caret_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_selected_color = Color(0, 0, 0, 1)
+LineEdit/font_sizes/font_size = 30
+LineEdit/fonts/font = ExtResource("1_xwrqe")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_gglg3")
+OptionButton/colors/font_color = Color(0, 0, 0, 1)
+OptionButton/colors/font_focus_color = Color(0, 0, 0, 1)
+OptionButton/colors/font_hover_color = Color(0, 0, 0, 1)
+OptionButton/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+OptionButton/colors/font_outline_color = Color(0, 0, 0, 1)
+OptionButton/colors/font_pressed_color = Color(0, 0, 0, 1)
+OptionButton/constants/modulate_arrow = 10
+OptionButton/font_sizes/font_size = 35
+OptionButton/fonts/font = ExtResource("1_xwrqe")
+OptionButton/styles/normal = SubResource("StyleBoxFlat_u4im5")
+OptionButton/styles/pressed = SubResource("StyleBoxFlat_u4im5")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_tbcnc")
+TabBar/font_sizes/font_size = 30
+TabContainer/font_sizes/font_size = 50
+TabContainer/fonts/font = ExtResource("1_xwrqe")
+TabContainer/styles/panel = SubResource("StyleBoxFlat_tr26a")
+TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_dxfm4")
+TabContainer/styles/tab_selected = SubResource("StyleBoxFlat_dxfm4")
+TabContainer/styles/tab_unselected = SubResource("StyleBoxFlat_dxfm4")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bo0pjisa70veb"]
+
+[ext_resource type="Theme" uid="uid://dp37il7rxql4r" path="res://NMFA/themes/ListButtonTheme.tres" id="1_mq4ta"]
+
+[node name="Destinations_NMA" type="VBoxContainer"]
+
+[node name="Button" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme = ExtResource("1_mq4ta")
+text = "TEST"
+alignment = 0
+text_overrun_behavior = 3

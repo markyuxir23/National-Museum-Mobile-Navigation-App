@@ -1,0 +1,142 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgrx4jbr4wy5x"]
+
+[ext_resource type="Script" path="res://DATABASE assets/LOGIN SYSTEM/Authentication.gd" id="1_gxy0o"]
+[ext_resource type="Theme" uid="uid://crjmlubq414bj" path="res://NMFA/themes/InfoPanelTheme.tres" id="1_oebdw"]
+[ext_resource type="Texture2D" uid="uid://0ix5p8tondfg" path="res://DATABASE assets/HOMEPAGE/assets/natlmuseum_logo-removebg-preview.png" id="3_krh1l"]
+
+[node name="Login System" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_oebdw")
+script = ExtResource("1_gxy0o")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.419608, 0.0745098, 0.0588235, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 500
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 500
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.8
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("3_krh1l")
+stretch_mode = 3
+
+[node name="AppName" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "National Museum Navigation App"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.3
+
+[node name="EmailLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 5
+size_flags_stretch_ratio = 0.5
+theme_override_font_sizes/font_size = 40
+placeholder_text = "Email"
+alignment = 1
+
+[node name="PasswordLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 5
+size_flags_stretch_ratio = 0.5
+theme_override_font_sizes/font_size = 40
+placeholder_text = "Password"
+alignment = 1
+secret = true
+
+[node name="LogIn" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 5
+size_flags_stretch_ratio = 0.3
+theme_override_font_sizes/font_size = 40
+text = "Log In"
+
+[node name="SignUp" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 5
+size_flags_stretch_ratio = 0.3
+theme_override_font_sizes/font_size = 40
+text = "Sign Up
+"
+
+[node name="StateLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 5
+theme_override_font_sizes/font_size = 40
+text = "Not Logged In
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="UserNameLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 5
+size_flags_stretch_ratio = 0.5
+theme_override_font_sizes/font_size = 40
+placeholder_text = "Username"
+alignment = 1
+
+[node name="ConfirmButton" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 5
+size_flags_stretch_ratio = 0.3
+theme_override_font_sizes/font_size = 40
+text = "Confirm
+"
+
+[node name="AdminPassLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 5
+size_flags_stretch_ratio = 0.5
+theme_override_font_sizes/font_size = 40
+placeholder_text = "Admin Passcode"
+alignment = 1
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/LogIn" to="." method="_on_log_in_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SignUp" to="." method="_on_sign_up_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ConfirmButton" to="." method="_on_confirm_button_pressed"]

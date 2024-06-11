@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://blahuapnmjyjk"]
+
+[ext_resource type="Script" path="res://NMFA/scripts/StartLocations.gd" id="1_r2vdd"]
+[ext_resource type="Theme" uid="uid://dp37il7rxql4r" path="res://NMFA/themes/ListButtonTheme.tres" id="2_y43bt"]
+
+[node name="StartButtons (NMFA-3F)" type="VBoxContainer"]
+script = ExtResource("1_r2vdd")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("2_y43bt")

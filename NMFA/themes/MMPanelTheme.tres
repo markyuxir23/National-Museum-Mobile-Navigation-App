@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://ytqhifgqxd4l"]
+
+[ext_resource type="FontFile" uid="uid://b67fdtllo387c" path="res://NMFA/themes/FONTS/Minion/Minion Cyrillic Semibold.otf" id="1_ue5d4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s246k"]
+bg_color = Color(0.427451, 0.160784, 0.196078, 1)
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[resource]
+Label/font_sizes/font_size = 50
+Label/fonts/font = ExtResource("1_ue5d4")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_s246k")

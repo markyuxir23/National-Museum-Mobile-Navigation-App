@@ -1,0 +1,46 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://baynjb684xara"]
+
+[ext_resource type="FontFile" uid="uid://b67fdtllo387c" path="res://NMFA/themes/FONTS/Minion/Minion Cyrillic Semibold.otf" id="1_qed5a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tfl0w"]
+bg_color = Color(0.427451, 0.160784, 0.196078, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qigtn"]
+bg_color = Color(0.705882, 0.482353, 0.517647, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ttoi1"]
+bg_color = Color(0.705882, 0.482353, 0.517647, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+
+[resource]
+OptionButton/font_sizes/font_size = 50
+OptionButton/fonts/font = ExtResource("1_qed5a")
+OptionButton/styles/normal = SubResource("StyleBoxFlat_tfl0w")
+OptionButton/styles/pressed = SubResource("StyleBoxFlat_qigtn")
+PopupMenu/colors/font_color = Color(0, 0, 0, 1)
+PopupMenu/font_sizes/font_separator_size = 50
+PopupMenu/font_sizes/font_size = 50
+PopupMenu/fonts/font = ExtResource("1_qed5a")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_ttoi1")

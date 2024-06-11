@@ -1,0 +1,195 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="thesis.apk"
+4    android:installLocation="auto"
+5    android:versionCode="1"
+6    android:versionName="1.0.0" >
+7
+8    <uses-sdk
+9        android:minSdkVersion="24"
+10        android:targetSdkVersion="33" />
+11
+12    <supports-screens
+12-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:9:5-13:40
+13        android:largeScreens="true"
+13-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:12:9-36
+14        android:normalScreens="true"
+14-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:11:9-37
+15        android:smallScreens="true"
+15-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:10:9-36
+16        android:xlargeScreens="true" />
+16-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:13:9-37
+17
+18    <uses-feature
+18-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:15:5-17:35
+19        android:glEsVersion="0x00030000"
+19-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:16:9-41
+20        android:required="true" />
+20-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:17:9-32
+21
+22    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+22-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\src\debug\AndroidManifest.xml:11:5-79
+22-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\src\debug\AndroidManifest.xml:11:22-76
+23    <uses-permission android:name="android.permission.CAMERA" />
+23-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\src\debug\AndroidManifest.xml:12:5-65
+23-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\src\debug\AndroidManifest.xml:12:22-62
+24    <uses-permission android:name="android.permission.INTERNET" />
+24-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\src\debug\AndroidManifest.xml:13:5-67
+24-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\src\debug\AndroidManifest.xml:13:22-64
+25    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+25-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\src\debug\AndroidManifest.xml:14:5-80
+25-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\src\debug\AndroidManifest.xml:14:22-77
+26
+27    <uses-feature
+27-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\src\debug\AndroidManifest.xml:15:5-132
+28        android:name="android.hardware.vulkan.level"
+28-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\src\debug\AndroidManifest.xml:15:40-84
+29        android:required="false"
+29-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\src\debug\AndroidManifest.xml:15:85-109
+30        android:version="1" />
+30-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\src\debug\AndroidManifest.xml:15:110-129
+31    <uses-feature
+31-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\src\debug\AndroidManifest.xml:16:5-140
+32        android:name="android.hardware.vulkan.version"
+32-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\src\debug\AndroidManifest.xml:16:40-86
+33        android:required="true"
+33-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\src\debug\AndroidManifest.xml:16:87-110
+34        android:version="0x400003" />
+34-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\src\debug\AndroidManifest.xml:16:111-137
+35
+36    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+36-->[GodotGetImage-debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\cdd8602fe0e7a033a9e1c203195b1de3\transformed\jetified-GodotGetImage-debug\AndroidManifest.xml:8:5-76
+36-->[GodotGetImage-debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\cdd8602fe0e7a033a9e1c203195b1de3\transformed\jetified-GodotGetImage-debug\AndroidManifest.xml:8:22-73
+37
+38    <uses-feature
+38-->[GodotGetImage-debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\cdd8602fe0e7a033a9e1c203195b1de3\transformed\jetified-GodotGetImage-debug\AndroidManifest.xml:11:5-13:35
+39        android:name="android.hardware.camera"
+39-->[GodotGetImage-debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\cdd8602fe0e7a033a9e1c203195b1de3\transformed\jetified-GodotGetImage-debug\AndroidManifest.xml:12:9-47
+40        android:required="true" />
+40-->[GodotGetImage-debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\cdd8602fe0e7a033a9e1c203195b1de3\transformed\jetified-GodotGetImage-debug\AndroidManifest.xml:13:9-32
+41
+42    <application
+42-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:19:5-53:19
+43        android:allowBackup="false"
+43-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:21:9-36
+44        android:appCategory="game"
+44-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:23:9-35
+45        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+45-->[androidx.core:core:1.2.0] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\9bcb1a65f5938aad264f4d73e9a06f28\transformed\core-1.2.0\AndroidManifest.xml:24:18-86
+46        android:debuggable="true"
+47        android:extractNativeLibs="false"
+48        android:hasFragileUserData="false"
+48-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:25:9-43
+49        android:icon="@mipmap/icon"
+49-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:22:9-36
+50        android:isGame="true"
+50-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:24:9-30
+51        android:label="@string/godot_project_name_string"
+51-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:20:9-58
+52        android:requestLegacyExternalStorage="true" >
+52-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:26:9-53
+53        <activity
+53-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:34:9-51:20
+54            android:name="com.godot.game.GodotApp"
+54-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:35:13-37
+55            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize|density|keyboard|navigation|screenLayout|uiMode"
+55-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:42:13-141
+56            android:excludeFromRecents="false"
+56-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:39:13-47
+57            android:exported="true"
+57-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:40:13-36
+58            android:label="@string/godot_project_name_string"
+58-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:36:13-62
+59            android:launchMode="singleInstancePerTask"
+59-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:38:13-55
+60            android:resizeableActivity="true"
+60-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:43:13-47
+61            android:screenOrientation="portrait"
+61-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:41:13-50
+62            android:theme="@style/GodotAppSplashTheme" >
+62-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:37:13-55
+63            <intent-filter>
+63-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:46:13-50:29
+64                <action android:name="android.intent.action.MAIN" />
+64-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:47:17-69
+64-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:47:25-66
+65
+66                <category android:name="android.intent.category.DEFAULT" />
+66-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:48:17-76
+66-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:48:27-73
+67                <category android:name="android.intent.category.LAUNCHER" />
+67-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:49:17-77
+67-->D:\THESIS PROJECT\v3\Museum-Navigation-Mobile-App\android\build\AndroidManifest.xml:49:27-74
+68            </intent-filter>
+69        </activity>
+70        <!-- Records the version of the Godot editor used for building -->
+71        <meta-data
+72            android:name="org.godotengine.editor.version"
+73            android:value="4.2.stable" /> <!-- Records the version of the Godot library -->
+74        <meta-data
+74-->[godot-lib.template_debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\8dca7980fb192054f00e20bdf1587154\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:14:9-16:44
+75            android:name="org.godotengine.library.version"
+75-->[godot-lib.template_debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\8dca7980fb192054f00e20bdf1587154\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:15:13-59
+76            android:value="4.2.0.stable" />
+76-->[godot-lib.template_debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\8dca7980fb192054f00e20bdf1587154\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:16:13-41
+77
+78        <service android:name="org.godotengine.godot.GodotDownloaderService" />
+78-->[godot-lib.template_debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\8dca7980fb192054f00e20bdf1587154\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:18:9-80
+78-->[godot-lib.template_debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\8dca7980fb192054f00e20bdf1587154\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:18:18-77
+79
+80        <activity
+80-->[godot-lib.template_debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\8dca7980fb192054f00e20bdf1587154\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:20:9-24:75
+81            android:name="org.godotengine.godot.utils.ProcessPhoenix"
+81-->[godot-lib.template_debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\8dca7980fb192054f00e20bdf1587154\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:21:13-70
+82            android:exported="false"
+82-->[godot-lib.template_debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\8dca7980fb192054f00e20bdf1587154\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:22:13-37
+83            android:process=":phoenix"
+83-->[godot-lib.template_debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\8dca7980fb192054f00e20bdf1587154\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:23:13-39
+84            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+84-->[godot-lib.template_debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\8dca7980fb192054f00e20bdf1587154\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:24:13-72
+85
+86        <provider
+86-->[godot-lib.template_debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\8dca7980fb192054f00e20bdf1587154\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:26:9-34:20
+87            android:name="androidx.core.content.FileProvider"
+87-->[godot-lib.template_debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\8dca7980fb192054f00e20bdf1587154\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:27:13-62
+88            android:authorities="thesis.apk.fileprovider"
+88-->[godot-lib.template_debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\8dca7980fb192054f00e20bdf1587154\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:28:13-64
+89            android:exported="false"
+89-->[godot-lib.template_debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\8dca7980fb192054f00e20bdf1587154\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:29:13-37
+90            android:grantUriPermissions="true" >
+90-->[godot-lib.template_debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\8dca7980fb192054f00e20bdf1587154\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:30:13-47
+91            <meta-data
+91-->[godot-lib.template_debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\8dca7980fb192054f00e20bdf1587154\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:31:13-33:64
+92                android:name="android.support.FILE_PROVIDER_PATHS"
+92-->[godot-lib.template_debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\8dca7980fb192054f00e20bdf1587154\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:32:17-67
+93                android:resource="@xml/godot_provider_paths" />
+93-->[godot-lib.template_debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\8dca7980fb192054f00e20bdf1587154\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:33:17-61
+94        </provider>
+95
+96        <meta-data
+96-->[GodotGetImage-debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\cdd8602fe0e7a033a9e1c203195b1de3\transformed\jetified-GodotGetImage-debug\AndroidManifest.xml:16:9-18:78
+97            android:name="org.godotengine.plugin.v2.GodotGetImage"
+97-->[GodotGetImage-debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\cdd8602fe0e7a033a9e1c203195b1de3\transformed\jetified-GodotGetImage-debug\AndroidManifest.xml:17:13-67
+98            android:value="com.gmail.lamelynx.godotgetimage.GodotGetImage" />
+98-->[GodotGetImage-debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\cdd8602fe0e7a033a9e1c203195b1de3\transformed\jetified-GodotGetImage-debug\AndroidManifest.xml:18:13-75
+99
+100        <provider
+100-->[GodotGetImage-debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\cdd8602fe0e7a033a9e1c203195b1de3\transformed\jetified-GodotGetImage-debug\AndroidManifest.xml:20:9-28:20
+101            android:name="com.gmail.lamelynx.godotgetimage.GGIFileProvider"
+101-->[GodotGetImage-debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\cdd8602fe0e7a033a9e1c203195b1de3\transformed\jetified-GodotGetImage-debug\AndroidManifest.xml:21:13-76
+102            android:authorities="thesis.apk.ggi_FileProvider"
+102-->[GodotGetImage-debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\cdd8602fe0e7a033a9e1c203195b1de3\transformed\jetified-GodotGetImage-debug\AndroidManifest.xml:22:13-68
+103            android:exported="false"
+103-->[GodotGetImage-debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\cdd8602fe0e7a033a9e1c203195b1de3\transformed\jetified-GodotGetImage-debug\AndroidManifest.xml:23:13-37
+104            android:grantUriPermissions="true" >
+104-->[GodotGetImage-debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\cdd8602fe0e7a033a9e1c203195b1de3\transformed\jetified-GodotGetImage-debug\AndroidManifest.xml:24:13-47
+105            <meta-data
+105-->[godot-lib.template_debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\8dca7980fb192054f00e20bdf1587154\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:31:13-33:64
+106                android:name="android.support.FILE_PROVIDER_PATHS"
+106-->[godot-lib.template_debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\8dca7980fb192054f00e20bdf1587154\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:32:17-67
+107                android:resource="@xml/ggi_file_provider_paths" />
+107-->[godot-lib.template_debug.aar] C:\Users\Acer Travelmate\.gradle\caches\transforms-3\8dca7980fb192054f00e20bdf1587154\transformed\jetified-godot-lib.template_debug\AndroidManifest.xml:33:17-61
+108        </provider>
+109    </application>
+110
+111</manifest>

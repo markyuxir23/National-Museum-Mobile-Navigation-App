@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://blp2q7vswik18"]
+
+[ext_resource type="Texture2D" uid="uid://c6rlk75yqesab" path="res://NMFA/assets/dest icon.png" id="1_2qpsm"]
+
+[node name="Node2D" type="Sprite2D"]
+scale = Vector2(0.69375, 0.69375)
+texture = ExtResource("1_2qpsm")

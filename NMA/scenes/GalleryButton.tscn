@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bw0a005p10mrn"]
+
+[node name="GalleryInfo" type="TextureButton"]
+offset_left = -186.0
+offset_top = -32.0
+offset_right = 252.0
+offset_bottom = 88.0
+scale = Vector2(0.5, 0.5)
+stretch_mode = 0

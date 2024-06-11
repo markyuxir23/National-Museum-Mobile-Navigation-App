@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dgr3wdqsvf0u2"]
+
+[ext_resource type="FontFile" uid="uid://b67fdtllo387c" path="res://NMFA/themes/FONTS/Minion/Minion Cyrillic Semibold.otf" id="1_pjh3b"]
+
+[resource]
+Button/font_sizes/font_size = 40
+Button/fonts/font = ExtResource("1_pjh3b")

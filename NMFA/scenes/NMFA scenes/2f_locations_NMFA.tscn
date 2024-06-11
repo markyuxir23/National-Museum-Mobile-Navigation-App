@@ -1,0 +1,169 @@
+[gd_scene load_steps=3 format=3 uid="uid://g33g6tcf2m3"]
+
+[ext_resource type="Texture2D" uid="uid://bobhhtebjmbnn" path="res://NMFA/icon.svg" id="1_pkwgj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmk1l"]
+atlas = ExtResource("1_pkwgj")
+region = Rect2(48, 32, 16, 16)
+
+[node name="2f-Locations" type="Node2D"]
+
+[node name="Hall of Masters" type="Sprite2D" parent="." groups=["2F", "gallery"]]
+position = Vector2(6.91414e-06, -40)
+scale = Vector2(22, 39)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Back Entrance (Osmeña Hall)" type="Sprite2D" parent="." groups=["2F", "exit"]]
+position = Vector2(0, -536)
+scale = Vector2(20, 13)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Main Entrance (Manuel Roxas Hall)" type="Sprite2D" parent="." groups=["2F", "exit"]]
+position = Vector2(-9.53674e-07, 460)
+scale = Vector2(10, 7.5)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Clinic" type="Sprite2D" parent="." groups=["2F"]]
+position = Vector2(-988, -312)
+scale = Vector2(3.50001, 1)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Gallery 1" type="Sprite2D" parent="." groups=["2F", "gallery"]]
+position = Vector2(608, 464)
+scale = Vector2(26, 12)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Gallery 2" type="Sprite2D" parent="." groups=["2F", "gallery"]]
+position = Vector2(960, 464)
+scale = Vector2(16, 12)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Gallery 3" type="Sprite2D" parent="." groups=["2F", "gallery"]]
+position = Vector2(720, -32)
+scale = Vector2(12, 40)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Gallery 4" type="Sprite2D" parent="." groups=["2F", "gallery"]]
+position = Vector2(1000, -72)
+scale = Vector2(11, 25)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Gallery 5" type="Sprite2D" parent="." groups=["2F", "gallery"]]
+position = Vector2(960, -536)
+scale = Vector2(16, 13)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Gallery 6" type="Sprite2D" parent="." groups=["2F", "gallery"]]
+position = Vector2(576, -536)
+scale = Vector2(30, 13)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Gallery 7" type="Sprite2D" parent="." groups=["2F", "gallery"]]
+position = Vector2(-584, -536)
+scale = Vector2(29, 13)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Gallery 8" type="Sprite2D" parent="." groups=["2F", "gallery"]]
+position = Vector2(-960, -536)
+scale = Vector2(16, 13)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Gallery 9" type="Sprite2D" parent="." groups=["2F", "gallery"]]
+position = Vector2(-720, -32)
+scale = Vector2(12, 40)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Gallery 10" type="Sprite2D" parent="." groups=["2F", "gallery"]]
+position = Vector2(-1000, -64)
+scale = Vector2(11, 24)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Gallery 11" type="Sprite2D" parent="." groups=["2F", "gallery"]]
+position = Vector2(-968, 472)
+scale = Vector2(15, 11)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Gallery 12" type="Sprite2D" parent="." groups=["2F", "gallery"]]
+position = Vector2(-584, 472)
+scale = Vector2(29, 11)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Male CR (S, 2F)" type="Sprite2D" parent="." groups=["2F", "CR"]]
+position = Vector2(-936, 248)
+scale = Vector2(3.5, 1)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Male CR (W, 2F)" type="Sprite2D" parent="." groups=["2F", "CR"]]
+position = Vector2(-312, 384)
+scale = Vector2(1, 4)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Male CR (N, 2F)" type="Sprite2D" parent="." groups=["2F", "CR"]]
+position = Vector2(928, 248)
+scale = Vector2(4, 1)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Female CR (S, 2F)" type="Sprite2D" parent="." groups=["2F", "CR"]]
+position = Vector2(-936, 184)
+scale = Vector2(3.5, 1)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Female CR (W, 2F)" type="Sprite2D" parent="." groups=["2F", "CR"]]
+position = Vector2(296, 384)
+scale = Vector2(1, 4)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Female CR (N, 2F)" type="Sprite2D" parent="." groups=["2F", "CR"]]
+position = Vector2(928, 184)
+scale = Vector2(4, 1)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Stairs (NW, 2F)" type="Sprite2D" parent="." groups=["2F", "stairs"]]
+position = Vector2(928, 328)
+scale = Vector2(4, 1)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Stairs (SW, 2F)" type="Sprite2D" parent="." groups=["2F", "stairs"]]
+position = Vector2(-936, 328)
+scale = Vector2(3.5, 1)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Stairs (E1, 2F)" type="Sprite2D" parent="." groups=["2F", "CR", "stairs"]]
+position = Vector2(-240, -480)
+scale = Vector2(1, 4)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Stairs (E2, 2F)" type="Sprite2D" parent="." groups=["2F", "CR", "stairs"]]
+position = Vector2(248, -488)
+scale = Vector2(1, 4)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Emergency Stairs (NE, 2F)" type="Sprite2D" parent="." groups=["2F", "emergency stairs", "stairs"]]
+position = Vector2(928, -392)
+scale = Vector2(4, 1)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Emergency Stairs (SE, 2F)" type="Sprite2D" parent="." groups=["2F", "emergency stairs", "stairs"]]
+position = Vector2(-988, -392)
+scale = Vector2(3.5, 1)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Elevator 2 (W, 2F)" type="Sprite2D" parent="." groups=["2F", "stairs"]]
+position = Vector2(288, 288)
+scale = Vector2(1, 4)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Elevator 1 (W, 2F)" type="Sprite2D" parent="." groups=["2F", "stairs"]]
+position = Vector2(-248, 288)
+scale = Vector2(1, 4)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Elevator 1 (E, 2F)" type="Sprite2D" parent="." groups=["2F", "stairs"]]
+position = Vector2(-256, -352)
+scale = Vector2(1, 4)
+texture = SubResource("AtlasTexture_fmk1l")
+
+[node name="Elevator 2 (E, 2F)" type="Sprite2D" parent="." groups=["2F", "stairs"]]
+position = Vector2(240, -352)
+scale = Vector2(1, 4)
+texture = SubResource("AtlasTexture_fmk1l")

@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://c34xrn6vqp4kc"
+path="res://.godot/imported/Minion Italic.ttf-a7528c34266f8178d928a588866ae40d.fontdata"
+
+[deps]
+
+source_file="res://NMA/themes/FONTS/Minion/Minion Italic.ttf"
+dest_files=["res://.godot/imported/Minion Italic.ttf-a7528c34266f8178d928a588866ae40d.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://x1am6muet8c0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okqvg"]
+bg_color = Color(0.705882, 0.482353, 0.517647, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 40.0
+expand_margin_top = 40.0
+expand_margin_right = 40.0
+expand_margin_bottom = 40.0
+
+[resource]
+Button/styles/hover = SubResource("StyleBoxFlat_okqvg")
+Button/styles/normal = SubResource("StyleBoxFlat_okqvg")
+Button/styles/pressed = SubResource("StyleBoxFlat_okqvg")
