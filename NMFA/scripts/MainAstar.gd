@@ -34,8 +34,7 @@ var selectedDestLabel
 var interOrigin = Globals.interfloor_origin
 var InterDest = Globals.interfloor_destination
 var sourceGroup = Globals.source_group
-#var restrictDB = Firebase.Database.get_database_reference("restrictedData/Galleries/")
-#var restrictData: Dictionary
+
 
 func _ready():
 	astar_grid = AStarGrid2D.new()
@@ -87,22 +86,6 @@ func _ready():
 		var gallerypanel = get_node("UI/GalleryInfo")
 		var galleryPos = (Globals.see_on_map_gallery).global_position
 		gallerypanel._on_gallery_manager_gallery_pressed(Globals.see_on_map_gallery.name, galleryPos)
-
-	#restrictDB.new_data_update.connect(updateData)
-	#restrictDB.patch_data_update.connect(updateData)
-	#restrictDB.delete_data_update.connect(updateData)
-#
-#func updateData(document):
-	#restrictData = restrictDB.get_data()
-	#print(restrictData)
-	#for item in galleries:
-		#if restrictData.keys().has(item.name):
-			#item.name = item.name + "(RESTRICTED)"
-			#print(item.name)
-			#
-	#for item in galleries:
-		#if item.name.contains("(RESTRICTED)") and  restrictData.keys().has(item.name.replace("(RESTRICTED)","")):
-			#item.name.replace("(RESTRICTED)","")
 
 func tweenOnPosition(tweenPos: Vector2):
 	var tween = get_tree().create_tween()

@@ -17,6 +17,11 @@ var auth = Firebase.Auth.auth
 var recomdbRef = Firebase.Database.get_database_reference("userData")
 var newPath = Firebase.Database.get_database_reference("userData/userVisited/" + auth.localid)
 
+var restrictDB = Firebase.Database.get_database_reference("restrictedData/Galleries/")
+var restrictData: Dictionary
+
+var isRestricted = false
+
 func _ready():
 	hallLabel.text = ""
 	infoLabel.text = ""
@@ -28,16 +33,33 @@ func _ready():
 					hallLabel.text = str(galleryData[gallery][key]["gallery_hallname"])
 					infoLabel.text = str(galleryData[gallery][key]["gallery_info"])
 				currentArts.append(galleryData[gallery][key])
+	
 	getCurrentArtworks()
 
 	newPath.new_data_update.connect(getDocument)
 	newPath.patch_data_update.connect(getDocument)
 	newPath.delete_data_update.connect(getDocument)
 
+	restrictDB.update("dummy", {0:0})
+	
+	restrictDB.new_data_update.connect(updateData)
+	restrictDB.patch_data_update.connect(updateData)
+	restrictDB.delete_data_update.connect(updateData)
+
+func updateData(document):
+	restrictData = restrictDB.get_data()
+	if restrictData.keys().has(galleryLabel.text):
+		isRestricted = true
+		print(isRestricted)
+		getCurrentArtworks()
+
 func getCurrentArtworks():
 	if artContainer.get_children().size() != 0 or null:
 		for i in artContainer.get_children():
 			artContainer.remove_child(i)
+	
+	if isRestricted == true:
+		currentArts.clear()
 	
 	if currentArts.size() == 0:
 		var label = Label.new()

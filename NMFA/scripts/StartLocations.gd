@@ -38,9 +38,6 @@ func updateData(document):
 	for loc in currentGalleries:
 		if restrictData.keys().has(loc.name):
 			loc.name = loc.name + "(RESTRICTED)"
-	for loc in currentGalleries:
-		if loc.name.contains("(RESTRICTED)") and restrictData.keys().has(loc.name.replace("(RESTRICTED)","")):
-			loc.name.replace("(RESTRICTED)","")
 	locationInfo(currentGalleries)
 
 func locationInfo(locations):
@@ -50,7 +47,10 @@ func locationInfo(locations):
 		button.text = loc.name
 		var itemName = loc.name
 		button.show()
-		button.pressed.connect(self.emitName.bind(itemName))
+		if loc.name.contains("(RESTRICTED)"):
+			continue
+		else:
+			button.pressed.connect(self.emitName.bind(itemName))
 
 func emitName(buttonName):
 	emit_signal("buttonPressed", buttonName)

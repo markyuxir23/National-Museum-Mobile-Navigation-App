@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bbuo8fd3qnvdy"]
+[gd_scene load_steps=35 format=3 uid="uid://bbuo8fd3qnvdy"]
 
 [ext_resource type="Script" path="res://NMFA/scripts/MainAstar.gd" id="1_ph2ms"]
 [ext_resource type="Texture2D" uid="uid://b83dnyy4pyw5y" path="res://NMFA/assets/MAPS/black box.png" id="2_3r8tp"]
@@ -21,9 +21,6 @@
 [ext_resource type="Theme" uid="uid://tnf18oegi6ba" path="res://NMFA/themes/IconButtonTheme.tres" id="11_jypo6"]
 [ext_resource type="Theme" uid="uid://b0wxpftmh3mbt" path="res://NMFA/themes/BigLabelTheme.tres" id="13_xwhu1"]
 [ext_resource type="Theme" uid="uid://c6n17t2jn1x2f" path="res://NMFA/themes/BorderButtonTheme.tres" id="14_abomm"]
-[ext_resource type="Texture2D" uid="uid://biotdxq3ra0i5" path="res://NMFA/assets/2fTAG.png" id="14_jec6p"]
-[ext_resource type="Texture2D" uid="uid://baunw8xg6sd8t" path="res://NMFA/assets/3fTAG.png" id="15_bqsk4"]
-[ext_resource type="Texture2D" uid="uid://bq3lm7lrma2a" path="res://NMFA/assets/4fTAG.png" id="16_8vpt2"]
 [ext_resource type="Script" path="res://NMFA/scenes/NMFA scenes/DestFilter.gd" id="17_jpwfm"]
 [ext_resource type="Theme" uid="uid://pt18q07xnklj" path="res://NMFA/themes/OptionButtontheme.tres" id="19_vbkd3"]
 [ext_resource type="Script" path="res://NMFA/scripts/FloorSelector.gd" id="20_1bm56"]
@@ -3833,9 +3830,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.8
 script = ExtResource("8_qa0ef")
-_2F_Tag = ExtResource("14_jec6p")
-_3F_Tag = ExtResource("15_bqsk4")
-_4F_Tag = ExtResource("16_8vpt2")
 
 [node name="DestFilter" type="OptionButton" parent="UI/Control/DestItems/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -4250,6 +4244,7 @@ color = Color(0.992157, 0.988235, 0.988235, 1)
 [connection signal="text_changed" from="UI/Control/Destination" to="UI/Control" method="_on_destination_text_changed"]
 [connection signal="pressed" from="UI/Control/Show Dest" to="UI/Control" method="_on_show_dest_pressed"]
 [connection signal="pressed" from="UI/Control/Directions" to="." method="_on_directions_pressed"]
+[connection signal="buttonPressed" from="UI/Control/StartItems/PanelContainer/MarginContainer/StartButtons (NMFA-2F)" to="." method="_on_start_buttons_nmfa_2f_button_pressed"]
 [connection signal="buttonPressed" from="UI/Control/DestItems/PanelContainer/MarginContainer/HBoxContainer/Destinations_NMFA" to="." method="_on_destinations_nmfa_button_pressed"]
 [connection signal="item_selected" from="UI/Control/DestItems/PanelContainer/MarginContainer/HBoxContainer/DestFilter" to="UI/Control/DestItems/PanelContainer/MarginContainer/HBoxContainer/Destinations_NMFA" method="_on_option_button_item_selected"]
 [connection signal="item_selected" from="UI/Control/FloorSelector/OptionButton" to="." method="_on_option_button_item_selected"]
