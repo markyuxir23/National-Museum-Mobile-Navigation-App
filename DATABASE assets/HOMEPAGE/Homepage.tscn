@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bgt80utxk6twh"]
+[gd_scene load_steps=36 format=3 uid="uid://bgt80utxk6twh"]
 
 [ext_resource type="Theme" uid="uid://crjmlubq414bj" path="res://NMFA/themes/InfoPanelTheme.tres" id="1_ldbur"]
 [ext_resource type="Texture2D" uid="uid://0ix5p8tondfg" path="res://DATABASE assets/HOMEPAGE/assets/natlmuseum_logo-removebg-preview.png" id="2_0m4jm"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dn2fc36q4ve8j" path="res://DATABASE assets/assets/icons8-arrow-left-100.png" id="11_k4erv"]
 [ext_resource type="Texture2D" uid="uid://3em501hjymol" path="res://DATABASE assets/assets/icons8-edit-60.png" id="13_e70sf"]
 [ext_resource type="Texture2D" uid="uid://dxhqb56merj4h" path="res://DATABASE assets/assets/icons8-delete-60.png" id="14_bml58"]
+[ext_resource type="Texture2D" uid="uid://b7jm3mglfq476" path="res://DATABASE assets/assets/icons8-refresh.svg" id="14_w7yjm"]
 [ext_resource type="Texture2D" uid="uid://b85rxqfhwlcs5" path="res://DATABASE assets/assets/icons8-save-60.png" id="15_payc1"]
 [ext_resource type="Texture2D" uid="uid://dv25of45nj24s" path="res://DATABASE assets/assets/icons8-cancel-96.png" id="16_63vte"]
 
@@ -126,7 +127,6 @@ artworkScene = ExtResource("10_22uww")
 
 [node name="LoadingScreen" type="ColorRect" parent="."]
 unique_name_in_owner = true
-visible = false
 top_level = true
 layout_mode = 0
 offset_top = 253.0
@@ -658,6 +658,7 @@ layout_mode = 2
 
 [node name="SearchScene" type="MarginContainer" parent="VBoxContainer/Body"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
@@ -673,20 +674,23 @@ theme = SubResource("Theme_kvor6")
 layout_mode = 2
 theme_override_constants/separation = 40
 
-[node name="AddContainer" type="PanelContainer" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer"]
+[node name="AddGalleryContainer" type="PanelContainer" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddGalleryContainer"]
 layout_mode = 2
+theme_override_constants/separation = 40
 
-[node name="NewGalleryLines" type="VBoxContainer" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddContainer/VBoxContainer"]
+[node name="NewGalleryLines" type="VBoxContainer" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddGalleryContainer/VBoxContainer"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 40
 
-[node name="NewGalleryNameLine" type="TextEdit" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddContainer/VBoxContainer/NewGalleryLines"]
+[node name="NewGalleryNameLine" type="TextEdit" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddGalleryContainer/VBoxContainer/NewGalleryLines"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -694,7 +698,8 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 40
 wrap_mode = 1
 
-[node name="NewHallNameLine" type="TextEdit" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddContainer/VBoxContainer/NewGalleryLines"]
+[node name="NewHallNameLine" type="TextEdit" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddGalleryContainer/VBoxContainer/NewGalleryLines"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -702,7 +707,8 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 40
 wrap_mode = 1
 
-[node name="NewGalleryInfoLine" type="TextEdit" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddContainer/VBoxContainer/NewGalleryLines"]
+[node name="NewGalleryInfoLine" type="TextEdit" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddGalleryContainer/VBoxContainer/NewGalleryLines"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -710,20 +716,31 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 40
 wrap_mode = 1
 
-[node name="AddGallery" type="Button" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddContainer/VBoxContainer"]
+[node name="NewGalleryArtworkCode" type="TextEdit" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddGalleryContainer/VBoxContainer/NewGalleryLines"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+wrap_mode = 1
+
+[node name="AddGallery" type="Button" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddGalleryContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 text = "Add New Gallery"
 
-[node name="NewGallerySaveCancel" type="HBoxContainer" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddContainer/VBoxContainer"]
+[node name="NewGallerySaveCancel" type="HBoxContainer" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddGalleryContainer/VBoxContainer"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
-[node name="NewGallerySave" type="Button" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddContainer/VBoxContainer/NewGallerySaveCancel"]
+[node name="NewGallerySave" type="Button" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddGalleryContainer/VBoxContainer/NewGallerySaveCancel"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -731,7 +748,8 @@ text = "Save"
 icon = ExtResource("15_payc1")
 flat = true
 
-[node name="NewGalleryCancel" type="Button" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddContainer/VBoxContainer/NewGallerySaveCancel"]
+[node name="NewGalleryCancel" type="Button" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddGalleryContainer/VBoxContainer/NewGallerySaveCancel"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -756,6 +774,12 @@ flat = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.85
+
+[node name="Refresh" type="Button" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+icon = ExtResource("14_w7yjm")
+flat = true
 
 [node name="Close" type="Button" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
@@ -824,14 +848,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 40
 
-[node name="GalleryNameLine" type="TextEdit" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/ScrollContainer/GalleryScroll/GalleryInfoCard/Container/GalleryLines"]
+[node name="GalleryDisplay" type="Label" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/ScrollContainer/GalleryScroll/GalleryInfoCard/Container/GalleryLines"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 200)
+custom_minimum_size = Vector2(200, 150)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 40
-wrap_mode = 1
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="HallNameLine" type="TextEdit" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/ScrollContainer/GalleryScroll/GalleryInfoCard/Container/GalleryLines"]
 unique_name_in_owner = true
@@ -956,9 +979,12 @@ layout_mode = 2
 [connection signal="pressed" from="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer/VBoxContainer/Museums/HBoxContainer/NMA Card/MarginContainer/VBoxContainer/ExploreButtonsNMA/NMAExplore" to="." method="_on_nma_explore_pressed"]
 [connection signal="pressed" from="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer/VBoxContainer/Museums/HBoxContainer/NMA Card/MarginContainer/VBoxContainer/ExploreButtonsNMA/NMAInventory" to="." method="_on_nma_inventory_pressed"]
 [connection signal="pressed" from="VBoxContainer/Body/VBoxContainer/Tabs/TabContainer/Explore/MarginContainer/VBoxContainer/Museums/HBoxContainer/NMA Card/MarginContainer/VBoxContainer/EditNMA" to="." method="_on_edit_nma_pressed"]
-[connection signal="pressed" from="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddContainer/VBoxContainer/AddGallery" to="." method="_on_add_gallery_pressed"]
+[connection signal="pressed" from="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddGalleryContainer/VBoxContainer/AddGallery" to="." method="_on_add_gallery_pressed"]
+[connection signal="pressed" from="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddGalleryContainer/VBoxContainer/NewGallerySaveCancel/NewGallerySave" to="." method="_on_new_gallery_save_pressed"]
+[connection signal="pressed" from="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddGalleryContainer/VBoxContainer/NewGallerySaveCancel/NewGalleryCancel" to="." method="_on_new_gallery_cancel_pressed"]
 [connection signal="pressed" from="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="text_changed" from="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/HBoxContainer/Control" to="." method="_on_control_text_changed"]
+[connection signal="pressed" from="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/HBoxContainer/Refresh" to="." method="_on_refresh_pressed"]
 [connection signal="pressed" from="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/HBoxContainer/Close" to="." method="_on_close_pressed"]
 [connection signal="pressed" from="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/ScrollContainer/GalleryScroll/GalleryInfoCard/Container/GalleryWarning/Yes" to="." method="_on_yes_pressed"]
 [connection signal="pressed" from="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/ScrollContainer/GalleryScroll/GalleryInfoCard/Container/GalleryWarning/No" to="." method="_on_no_pressed"]

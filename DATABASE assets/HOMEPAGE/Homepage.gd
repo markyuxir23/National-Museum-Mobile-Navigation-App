@@ -20,6 +20,7 @@ extends Control
 
 @onready var galleryChoice
 @onready var currentGallery
+@onready var onArtworks = false
 
 signal editButtonPressed(galleryName)
 signal saveArtwork(artworkName)
@@ -152,10 +153,10 @@ func _on_edit_nmfa_pressed():
 		for i in %GalleryScroll.get_children():
 			if i != %GalleryInfoCard:
 				%GalleryScroll.remove_child(i)
-	
+	var dataSource = dbNMFA.get_data()
 	%SearchBG.show()
 	%SearchScene.show()
-	for gallery in StaticDatabase.gallery_data.keys():
+	for gallery in dataSource.keys():
 		var gall = galleryScene.instantiate()
 		var galleryLabel = gall.get_child(0).get_child(0).get_child(0)
 		galleryLabel.text = str(gallery)
@@ -170,10 +171,11 @@ func _on_edit_nma_pressed():
 		for i in %GalleryScroll.get_children():
 			if i != %GalleryInfoCard:
 				%GalleryScroll.remove_child(i)
-	
+				
+	var dataSource = dbNMA.get_data()
 	%SearchBG.show()
 	%SearchScene.show()
-	for gallery in StaticDatabaseNMA.gallery_data.keys():
+	for gallery in dataSource.keys():
 		var gall = galleryScene.instantiate()
 		var galleryLabel = gall.get_child(0).get_child(0).get_child(0)
 		galleryLabel.text = str(gallery)
@@ -209,26 +211,34 @@ func _on_control_text_changed(new_text):
 			else:
 				i.hide()
 
+#ARTWORK FUNCS#############
 func _on_edit_button_pressed(galleryName):
+	var dataSourceNMFA = dbNMFA.get_data()
+	var dataSourceNMA = dbNMA.get_data()
+	
 	%Back.show()
+	%AddGalleryContainer.hide()
 	var artSource: Dictionary
 	%GalleryInfoCard.show()
 	currentGallery = galleryName
-	
-	%GalleryName.text = galleryName
-	var lead = rawNMFA[galleryName].keys()[0]
-	%HallName.text = rawNMFA[galleryName][str(lead)]["gallery_hallname"]
-	%GalleryInfo.text = rawNMFA[galleryName][str(lead)]["gallery_info"]
-	
+
 	if %GalleryScroll.get_children().size() != 0 or null:
 		for i in %GalleryScroll.get_children():
 			if i != %GalleryInfoCard:
 				%GalleryScroll.remove_child(i)
 
-	if rawNMFA.keys().has(galleryName):
-		artSource = rawNMFA[galleryName]
-	elif rawNMA.keys().has(galleryName):
-		artSource = rawNMA[galleryName]
+	if dataSourceNMFA.keys().has(galleryName):
+		artSource = dataSourceNMFA[galleryName]
+		%GalleryName.text = galleryName
+		var lead = dataSourceNMFA[galleryName].keys()[0]
+		%HallName.text = dataSourceNMFA[galleryName][str(lead)]["gallery_hallname"]
+		%GalleryInfo.text = dataSourceNMFA[galleryName][str(lead)]["gallery_info"]
+	elif dataSourceNMA.keys().has(galleryName):
+		%GalleryName.text = galleryName
+		var lead = dataSourceNMA[galleryName].keys()[0]
+		%HallName.text = dataSourceNMA[galleryName][str(lead)]["gallery_hallname"]
+		%GalleryInfo.text = dataSourceNMA[galleryName][str(lead)]["gallery_info"]
+		artSource = dataSourceNMA[galleryName]
 
 	for artwork in artSource:
 		var selected = artSource[artwork]
@@ -255,6 +265,8 @@ func emitToDelete(artworkName):
 func emitToSave(artworkName):
 	emit_signal("saveArtwork", artworkName)
 
+
+
 #GALLERY EDITS FUNCS ###############################3
 func _on_delete_pressed():
 	%Warning.text = "Are you sure you want to delete " + currentGallery + "?"
@@ -268,8 +280,10 @@ func _on_no_pressed():
 	%GalleryLabels.show()
 
 func _on_edit_pressed():
+	onArtworks = true
 	%GalleryLabels.hide()
 	%GalleryEditDelete.hide()
+	%GalleryDisplay.text = %GalleryName.text
 	var labelsArray = %GalleryLabels.get_children()
 	for property in labelsArray:
 		if property == null:
@@ -287,13 +301,78 @@ func _on_cancel_pressed():
 	%GallerySaveCancel.hide()
 
 func _on_save_pressed():
-	pass # Replace with function body.
+	var lead
+	var leadArtwork
+	var dataNMFA = dbNMFA.get_data()
+	var dataNMA = dbNMA.get_data()
+	
+	if galleryChoice:
+		lead = dataNMFA[currentGallery].keys()[0]
+		leadArtwork = dataNMFA[currentGallery][str(lead)]
+
+	elif not galleryChoice:
+		lead = dataNMA[currentGallery].keys()[0]
+		leadArtwork = dataNMA[currentGallery][str(lead)]
+	
+	var updatedGallery = {
+				"art_title": leadArtwork["art_title"],
+				"art_artist": leadArtwork["art_artist"],
+				"art_date": leadArtwork["art_date"],
+				"art_place": leadArtwork["art_place"],
+				"art_type": leadArtwork["art_type"],
+				"gallery_hallname" : %HallNameLine.text,
+				"gallery_info" : %GalleryInfoLine.text
+		}
+	
+	if galleryChoice:
+		dbNMFA.update(currentGallery + "/" + lead, updatedGallery)
+	elif not galleryChoice:
+		dbNMA.update(currentGallery + "/" + lead, updatedGallery)
+	
+	_on_cancel_pressed()
 
 func _on_yes_pressed():
-	pass # Replace with function body.
-
-
+	if galleryChoice:
+		dbNMFA.delete(currentGallery)
+	elif not galleryChoice:
+		dbNMA.delete(currentGallery)
+	_on_back_pressed()
 
 #ADD GALLERY FUNCS###################3
 func _on_add_gallery_pressed():
-	pass # Replace with function body.
+	%AddGallery.hide()
+	%NewGallerySaveCancel.show()
+	%NewGalleryNameLine.text = "NEW GALLERY NAME"
+	%NewHallNameLine.text = "NEW GALLERY HALLNAME"
+	%NewGalleryInfoLine.text = "NEW GALLERY INFORMATION"
+	%NewGalleryArtworkCode.text = "NEW GALLERY ARTWORK CODE"
+	%NewGalleryLines.show()
+
+func _on_new_gallery_cancel_pressed():
+	%NewGallerySaveCancel.hide()
+	%NewGalleryLines.hide()
+	%AddGallery.show()
+
+func _on_new_gallery_save_pressed():
+	var partialGallery = { %NewGalleryArtworkCode.text + "_1": {
+				"art_title": " ",
+				"art_artist": " ",
+				"art_date": " ",
+				"art_place": " ",
+				"art_type": " ",
+				"gallery_hallname": %NewHallNameLine.text,
+				"gallery_info": %NewGalleryInfoLine.text,
+			}
+		}
+	
+	if galleryChoice:
+		dbNMFA.update(%NewGalleryNameLine.text, partialGallery)
+	if not galleryChoice:
+		dbNMA.update(%NewGalleryNameLine.text, partialGallery)
+	_on_new_gallery_cancel_pressed()
+
+func _on_refresh_pressed():
+	if onArtworks:
+		pass
+	elif not onArtworks:
+		_on_back_pressed()
