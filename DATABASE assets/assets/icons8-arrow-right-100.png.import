@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmijxtb4qsy35"
-path="res://.godot/imported/dislike.png-29887644db91f15ad575d5d0b31480e6.ctex"
+uid="uid://cajsp0tf8r6v2"
+path="res://.godot/imported/icons8-arrow-right-100.png-7bc240eeaf6663cf677292f84f92ba94.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://dislike.png"
-dest_files=["res://.godot/imported/dislike.png-29887644db91f15ad575d5d0b31480e6.ctex"]
+source_file="res://DATABASE assets/assets/icons8-arrow-right-100.png"
+dest_files=["res://.godot/imported/icons8-arrow-right-100.png-7bc240eeaf6663cf677292f84f92ba94.ctex"]
 
 [params]
 

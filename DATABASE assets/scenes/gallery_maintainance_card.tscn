@@ -1,0 +1,91 @@
+[gd_scene load_steps=10 format=3 uid="uid://de048333yjn8y"]
+
+[ext_resource type="Script" path="res://GalleryMaintCard.gd" id="1_c6cuo"]
+[ext_resource type="Texture2D" uid="uid://drwuvstfe8nx2" path="res://DATABASE assets/assets/ban icon.png" id="2_wx8iu"]
+[ext_resource type="Texture2D" uid="uid://c7ufvd1ulvflm" path="res://DATABASE assets/assets/icons8-like-24 (1).png" id="3_eovgk"]
+[ext_resource type="Texture2D" uid="uid://3em501hjymol" path="res://DATABASE assets/assets/icons8-edit-60.png" id="4_qvtvf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5nsn3"]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+bg_color = Color(0.639216, 0.262745, 0.262745, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yigv1"]
+
+[sub_resource type="Theme" id="Theme_cmmfk"]
+Button/styles/normal = SubResource("StyleBoxFlat_yigv1")
+Button/styles/pressed = null
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c1t0j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwego"]
+
+[node name="GalleryMaintainanceCard" type="PanelContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_5nsn3")
+script = ExtResource("1_c6cuo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="GalleryNameLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_vertical = 7
+text = "Gallery Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Restrict" type="Button" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 7
+theme = SubResource("Theme_cmmfk")
+theme_override_font_sizes/font_size = 30
+text = "RESTRICT"
+icon = ExtResource("2_wx8iu")
+flat = true
+
+[node name="Unrestrict" type="Button" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_vertical = 7
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_c1t0j")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uwego")
+text = "UNRESTRICT"
+icon = ExtResource("3_eovgk")
+flat = true
+
+[node name="Edit Artworks" type="Button" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 7
+theme_override_font_sizes/font_size = 30
+text = "EDIT"
+icon = ExtResource("4_qvtvf")
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Restrict" to="." method="_on_restrict_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Unrestrict" to="." method="_on_unrestrict_pressed"]

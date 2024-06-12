@@ -1,0 +1,269 @@
+[gd_scene load_steps=11 format=3 uid="uid://b8eiokwykq4tp"]
+
+[ext_resource type="Script" path="res://DATABASE assets/scenes/adminArtwork.gd" id="1_r6agd"]
+[ext_resource type="Texture2D" uid="uid://3em501hjymol" path="res://DATABASE assets/assets/icons8-edit-60.png" id="3_4p623"]
+[ext_resource type="FontFile" uid="uid://bpdm3lm1er11l" path="res://NMFA/themes/FONTS/Minion/MNON_N.ttf" id="3_isk6s"]
+[ext_resource type="FontFile" uid="uid://b67fdtllo387c" path="res://NMFA/themes/FONTS/Minion/Minion Cyrillic Semibold.otf" id="4_ck1al"]
+[ext_resource type="Texture2D" uid="uid://b85rxqfhwlcs5" path="res://DATABASE assets/assets/icons8-save-60.png" id="4_rcmey"]
+[ext_resource type="Texture2D" uid="uid://dv25of45nj24s" path="res://DATABASE assets/assets/icons8-cancel-96.png" id="5_mm1vr"]
+[ext_resource type="Texture2D" uid="uid://dxhqb56merj4h" path="res://DATABASE assets/assets/icons8-delete-60.png" id="6_hc2vb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hequa"]
+content_margin_left = 30.0
+content_margin_top = 30.0
+content_margin_right = 30.0
+content_margin_bottom = 30.0
+bg_color = Color(0.427451, 0.160784, 0.196078, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_umjep"]
+Label/font_sizes/font_size = 50
+Label/fonts/font = ExtResource("3_isk6s")
+
+[sub_resource type="Theme" id="Theme_md0hl"]
+Label/font_sizes/font_size = 30
+Label/fonts/font = ExtResource("4_ck1al")
+
+[node name="Artwork" type="PanelContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_hequa")
+script = ExtResource("1_r6agd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LabelLines" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 40
+
+[node name="TitleLine" type="TextEdit" parent="VBoxContainer/HBoxContainer/LabelLines"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+wrap_mode = 1
+
+[node name="ArtistLine" type="TextEdit" parent="VBoxContainer/HBoxContainer/LabelLines"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+wrap_mode = 1
+
+[node name="DateLine" type="LineEdit" parent="VBoxContainer/HBoxContainer/LabelLines"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+theme_override_font_sizes/font_size = 30
+
+[node name="PlaceLine" type="LineEdit" parent="VBoxContainer/HBoxContainer/LabelLines"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+theme_override_font_sizes/font_size = 30
+
+[node name="TypeLine" type="LineEdit" parent="VBoxContainer/HBoxContainer/LabelLines"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+theme_override_font_sizes/font_size = 30
+
+[node name="Labels" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="Title" type="Label" parent="VBoxContainer/HBoxContainer/Labels"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+theme = SubResource("Theme_umjep")
+text = "Title
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Artist" type="Label" parent="VBoxContainer/HBoxContainer/Labels"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+theme = SubResource("Theme_md0hl")
+text = "Title
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Date" type="Label" parent="VBoxContainer/HBoxContainer/Labels"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+theme = SubResource("Theme_md0hl")
+text = "Title
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Place" type="Label" parent="VBoxContainer/HBoxContainer/Labels"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+theme = SubResource("Theme_md0hl")
+text = "Title
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Type" type="Label" parent="VBoxContainer/HBoxContainer/Labels"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+theme = SubResource("Theme_md0hl")
+text = "Title
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="WarningContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Warning" type="Label" parent="VBoxContainer/HBoxContainer/WarningContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_vertical = 6
+text = "Are you sure?"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Yes" type="Button" parent="VBoxContainer/HBoxContainer/WarningContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "YES"
+
+[node name="No" type="Button" parent="VBoxContainer/HBoxContainer/WarningContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.3
+text = "NO"
+
+[node name="EditDeleteButtons" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+theme_override_constants/separation = 40
+alignment = 2
+
+[node name="Edit" type="Button" parent="VBoxContainer/HBoxContainer/EditDeleteButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Edit"
+icon = ExtResource("3_4p623")
+flat = true
+alignment = 0
+
+[node name="Delete" type="Button" parent="VBoxContainer/HBoxContainer/EditDeleteButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Delete"
+icon = ExtResource("6_hc2vb")
+flat = true
+alignment = 0
+
+[node name="SaveCancelButtons" type="HBoxContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Save" type="Button" parent="VBoxContainer/SaveCancelButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Save"
+icon = ExtResource("4_rcmey")
+flat = true
+
+[node name="Cancel" type="Button" parent="VBoxContainer/SaveCancelButtons"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Cancel"
+icon = ExtResource("5_mm1vr")
+flat = true
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/WarningContainer/No" to="." method="_on_no_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/EditDeleteButtons/Edit" to="." method="_on_edit_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/EditDeleteButtons/Delete" to="." method="_on_delete_pressed"]
+[connection signal="pressed" from="VBoxContainer/SaveCancelButtons/Cancel" to="." method="_on_cancel_pressed"]

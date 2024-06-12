@@ -4754,6 +4754,53 @@ layout_mode = 2
 texture = ExtResource("24_6u44u")
 expand_mode = 1
 
+[node name="ETA" type="Panel" parent="UI"]
+unique_name_in_owner = true
+offset_left = 40.0
+offset_top = 387.0
+offset_right = 392.0
+offset_bottom = 510.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5hr3t")
+
+[node name="ETALabel" type="Label" parent="UI/ETA"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("31_qrth3")
+theme_override_font_sizes/font_size = 40
+text = "ETA: 
+Distance:"
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="LoadingScreen" type="ColorRect" parent="UI"]
+unique_name_in_owner = true
+top_level = true
+offset_top = 35.0
+offset_right = 1080.0
+offset_bottom = 2397.0
+color = Color(1, 0.992157, 0.901961, 1)
+
+[node name="Label" type="Label" parent="UI/LoadingScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "LOADING..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="MainMenuPanel" type="Control" parent="UI"]
 layout_mode = 3
 anchor_left = 0.007
@@ -4851,30 +4898,6 @@ flat = true
 [node name="Control" type="Control" parent="UI/MainMenuPanel/PanelContainer/MarginContainer/VBoxContainer/Menu/VBoxContainer/Inventory"]
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="ETA" type="Panel" parent="UI"]
-unique_name_in_owner = true
-offset_left = 40.0
-offset_top = 387.0
-offset_right = 392.0
-offset_bottom = 510.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_5hr3t")
-
-[node name="ETALabel" type="Label" parent="UI/ETA"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 15.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("31_qrth3")
-theme_override_font_sizes/font_size = 40
-text = "ETA: 
-Distance:"
-vertical_alignment = 1
-autowrap_mode = 3
 
 [node name="2f-Locations" parent="." instance=ExtResource("27_o726l")]
 unique_name_in_owner = true

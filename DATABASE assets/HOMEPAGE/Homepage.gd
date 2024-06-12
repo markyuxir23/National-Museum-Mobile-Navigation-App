@@ -1,21 +1,47 @@
 extends Control
-@onready var rawNMFA
-@onready var rawNMA
+@onready var rawNMFA = {0:0}
+@onready var rawNMA = {0:0}
+@onready var visitData = {0:0}
 
 @onready var NMFAGalleries = []
 @onready var NMAGalleries = []
 @onready var visitDataNMFA = []
 @onready var visitDataNMA = []
+@onready var matches = []
 
-@export var galleryScene = preload("res://gallery_maintainance_card.tscn")
+@export var galleryScene:PackedScene
+@export var artworkScene:PackedScene
 
-var auth = Firebase.Auth.auth
-var userVisitDB = Firebase.Database.get_database_reference("userData/userVisited/" + auth.localid)
-var visitDB = Firebase.Database.get_database_reference("userData/userVisited")
-var dbNMFA = Firebase.Database.get_database_reference("museumData/FineArts/NMFA")
-var dbNMA = Firebase.Database.get_database_reference("museumData/NMA/-O-2WAeCWqHEaOYcf2Ro")
+@onready var auth = Firebase.Auth.auth
+@onready var userVisitDB = Firebase.Database.get_database_reference("userData/userVisited/" + auth.localid)
+@onready var visitDB = Firebase.Database.get_database_reference("userData/userVisited")
+@onready var dbNMFA = Firebase.Database.get_database_reference("museumData/FineArts/NMFA")
+@onready var dbNMA = Firebase.Database.get_database_reference("museumData/NMA/-O-2WAeCWqHEaOYcf2Ro")
+
+@onready var galleryChoice
+@onready var currentGallery
+
+signal editButtonPressed(galleryName)
+signal saveArtwork(artworkName)
+signal deleteArtwork(artworkName)
 
 func _ready():
+	dbNMFA.new_data_update.connect(updateData)
+	dbNMFA.patch_data_update.connect(updateData)
+	dbNMFA.delete_data_update.connect(updateData)
+	
+	dbNMA.new_data_update.connect(updateData)
+	dbNMA.patch_data_update.connect(updateData)
+	dbNMA.delete_data_update.connect(updateData)
+	
+	visitDB.new_data_update.connect(updateData)
+	visitDB.patch_data_update.connect(updateData)
+	visitDB.delete_data_update.connect(updateData)
+
+	userVisitDB.new_data_update.connect(updateData)
+	userVisitDB.patch_data_update.connect(updateData)
+	userVisitDB.delete_data_update.connect(updateData)
+	await get_tree().create_timer(3.00).timeout
 	if auth.localid:
 		var collection: FirestoreCollection = Firebase.Firestore.collection("user_data")
 		var task: FirestoreTask = collection.get_doc(auth.localid)
@@ -23,26 +49,15 @@ func _ready():
 		var document = finishedTask.document
 		if document.doc_fields.username:
 			%UserNameLabel.text = document.doc_fields.username
-
-	dbNMFA.new_data_update.connect(updateData)
-	dbNMFA.patch_data_update.connect(updateData)
-	dbNMFA.delete_data_update.connect(updateData)
+			userVisitDB.update("username", {document.doc_fields.username:0})
 	
 	rawNMFA = dbNMFA.get_data()
 	rawNMA = dbNMA.get_data()
-	
+	visitData = visitDB.get_data()
 	StaticDatabase.gallery_data = dbNMFA.get_data()
 	StaticDatabaseNMA.gallery_data = dbNMA.get_data()
 	
 	getDocument()
-	
-	visitDB.new_data_update.connect(getDocument)
-	visitDB.patch_data_update.connect(getDocument)
-	visitDB.delete_data_update.connect(getDocument)
-	
-	userVisitDB.new_data_update.connect(getDocument)
-	userVisitDB.patch_data_update.connect(getDocument)
-	userVisitDB.delete_data_update.connect(getDocument)
 
 	if DbGlobals.isAdmin == true:
 		%ChangePasswordField.show()
@@ -63,15 +78,13 @@ func _ready():
 		%EditNMA.hide()
 		%EditNMFA.hide()
 		%Explore.name = "Explore"
-	await get_tree().create_timer(1.00).timeout
 	%LoadingScreen.hide()
 	
-func updateData():
-	print("done export")
+func updateData(document):
+	print("update")
 
 func getDocument():
 	var auth = Firebase.Auth.auth
-	var visitData = visitDB.get_data()
 	if visitData.keys().has(auth.localid):
 		var fullData = userVisitDB.get_data()
 		for visit in fullData.keys():
@@ -95,11 +108,10 @@ func getDocument():
 
 func adminUpdates():
 	var visitData = visitDB.get_data()
-	for i in visitData.keys():
+	for i in visitData:
 		if str(i) != "dummy":
-			%Users.text = %Users.text + "\n" + str(i) + ":    " + str(visitData[i].size()) + "/" + str(rawNMFA.size() + rawNMA.size())
-	
-	
+			%Users.text = %Users.text + "\n" + str(visitData[i]["username"].keys()) + ":    " + str(visitData[i].size()) + "/" + str(rawNMFA.size() + rawNMA.size())
+
 func _on_log_out_pressed():
 	Firebase.Auth.logout()
 	get_tree().change_scene_to_file("res://DATABASE assets/LOGIN SYSTEM/Authentication.tscn")
@@ -120,6 +132,10 @@ func _on_nma_inventory_pressed():
 	GlobalsNMA.recent_scene = "res://DATABASE assets/HOMEPAGE/Homepage.tscn"
 	get_tree().change_scene_to_file("res://NMA/scenes/InventoryPage.tscn")
 
+
+
+
+#ADMIN FUNCS#########################
 func _on_update_passcode_button_pressed():
 	var auth = Firebase.Auth.auth
 	var collection: FirestoreCollection = Firebase.Firestore.collection("admin_data")
@@ -130,29 +146,154 @@ func _on_update_passcode_button_pressed():
 		%PasscodeLineEdit.placeholder_text = "New passcode submitted."
 
 func _on_edit_nmfa_pressed():
+	galleryChoice = true
+	%GalleryInfoCard.hide()
 	if %GalleryScroll.get_children().size() != 0 or null:
 		for i in %GalleryScroll.get_children():
-			%GalleryScroll.remove_child(i)
+			if i != %GalleryInfoCard:
+				%GalleryScroll.remove_child(i)
 	
 	%SearchBG.show()
 	%SearchScene.show()
 	for gallery in StaticDatabase.gallery_data.keys():
 		var gall = galleryScene.instantiate()
-		gall.get_child(0).get_child(0).text = str(gallery)
+		var galleryLabel = gall.get_child(0).get_child(0).get_child(0)
+		galleryLabel.text = str(gallery)
+		var editButton = gall.get_child(0).get_child(0).get_child(3)
+		editButton.pressed.connect(self.emitGalleryName.bind(galleryLabel.text))
 		%GalleryScroll.add_child(gall)
 
 func _on_edit_nma_pressed():
+	galleryChoice = false
+	%GalleryInfoCard.hide()
 	if %GalleryScroll.get_children().size() != 0 or null:
 		for i in %GalleryScroll.get_children():
-			%GalleryScroll.remove_child(i)
+			if i != %GalleryInfoCard:
+				%GalleryScroll.remove_child(i)
 	
 	%SearchBG.show()
 	%SearchScene.show()
 	for gallery in StaticDatabaseNMA.gallery_data.keys():
 		var gall = galleryScene.instantiate()
-		gall.get_child(0).get_child(0).text = str(gallery)
+		var galleryLabel = gall.get_child(0).get_child(0).get_child(0)
+		galleryLabel.text = str(gallery)
+		var editButton = gall.get_child(0).get_child(0).get_child(3)
+		editButton.pressed.connect(self.emitGalleryName.bind(galleryLabel.text))
 		%GalleryScroll.add_child(gall)
 
 func _on_close_pressed():
 	%SearchBG.hide()
 	%SearchScene.hide()
+
+func _on_back_pressed():
+	if galleryChoice:
+		_on_edit_nmfa_pressed()
+		%Back.hide()
+	if not galleryChoice:
+		_on_edit_nma_pressed()
+		%Back.hide()
+	
+func _on_control_text_changed(new_text):
+	new_text = new_text.to_lower()
+	if new_text == "" or new_text == null or new_text == " ":
+		for i in %GalleryScroll.get_children():
+			i.show()
+	else:
+		matches.clear()
+		for i in %GalleryScroll.get_children():
+			if (i.get_child(0).get_child(0).get_child(0).text).to_lower().contains(new_text):
+				matches.append(i)
+		for i in %GalleryScroll.get_children():
+			if i in matches:
+				i.show() 
+			else:
+				i.hide()
+
+func _on_edit_button_pressed(galleryName):
+	%Back.show()
+	var artSource: Dictionary
+	%GalleryInfoCard.show()
+	currentGallery = galleryName
+	
+	%GalleryName.text = galleryName
+	var lead = rawNMFA[galleryName].keys()[0]
+	%HallName.text = rawNMFA[galleryName][str(lead)]["gallery_hallname"]
+	%GalleryInfo.text = rawNMFA[galleryName][str(lead)]["gallery_info"]
+	
+	if %GalleryScroll.get_children().size() != 0 or null:
+		for i in %GalleryScroll.get_children():
+			if i != %GalleryInfoCard:
+				%GalleryScroll.remove_child(i)
+
+	if rawNMFA.keys().has(galleryName):
+		artSource = rawNMFA[galleryName]
+	elif rawNMA.keys().has(galleryName):
+		artSource = rawNMA[galleryName]
+
+	for artwork in artSource:
+		var selected = artSource[artwork]
+		var art = artworkScene.instantiate()
+		%GalleryScroll.add_child(art)
+		art.display(selected)
+		var saveButton = art.get_node("VBoxContainer/SaveCancelButtons/Save")
+		var deleteButton = art.get_node("VBoxContainer/HBoxContainer/WarningContainer/Yes")
+		deleteButton.pressed.connect(self.emitToDelete.bind(artSource[artwork]["art_title"]))
+		saveButton.pressed.connect(self.emitToSave.bind(artSource[artwork]["art_title"]))
+		
+func _on_delete_artwork(artworkName):
+	print("DELETE: ", artworkName)
+	
+func _on_save_artwork(artworkName):
+	print("SAVE: ", artworkName)
+
+func emitGalleryName(galleryName):
+	emit_signal("editButtonPressed", galleryName)
+
+func emitToDelete(artworkName):
+	emit_signal("deleteArtwork", artworkName)
+	
+func emitToSave(artworkName):
+	emit_signal("saveArtwork", artworkName)
+
+#GALLERY EDITS FUNCS ###############################3
+func _on_delete_pressed():
+	%Warning.text = "Are you sure you want to delete " + currentGallery + "?"
+	%GalleryWarning.show()
+	%GalleryEditDelete.hide()
+	%GalleryLabels.hide()
+
+func _on_no_pressed():
+	%GalleryWarning.hide()
+	%GalleryEditDelete.show()
+	%GalleryLabels.show()
+
+func _on_edit_pressed():
+	%GalleryLabels.hide()
+	%GalleryEditDelete.hide()
+	var labelsArray = %GalleryLabels.get_children()
+	for property in labelsArray:
+		if property == null:
+			property = ""
+		for lines in %GalleryLines.get_children():
+			if str(lines.name).to_lower().contains(str(property.name).to_lower()):
+				lines.text = property.text
+	%GalleryLines.show()
+	%GallerySaveCancel.show()
+
+func _on_cancel_pressed():
+	%GalleryLabels.show()
+	%GalleryEditDelete.show()
+	%GalleryLines.hide()
+	%GallerySaveCancel.hide()
+
+func _on_save_pressed():
+	pass # Replace with function body.
+
+func _on_yes_pressed():
+	pass # Replace with function body.
+
+
+
+#ADD GALLERY FUNCS###################3
+func _on_add_gallery_pressed():
+	pass # Replace with function body.

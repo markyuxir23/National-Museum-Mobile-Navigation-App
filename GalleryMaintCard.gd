@@ -19,7 +19,7 @@ func _on_restrict_pressed():
 	%Restrict.hide()
 	%Unrestrict.show()
 	restrictDB.update(%GalleryNameLabel.text, {0:0})
-	
+
 func _on_unrestrict_pressed():
 	restrictData = restrictDB.get_data()
 	print(restrictData)

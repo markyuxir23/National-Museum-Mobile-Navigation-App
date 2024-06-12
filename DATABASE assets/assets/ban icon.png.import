@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0cg8ptooswc7"
-path="res://.godot/imported/icons8-camera-50.png-2b5601abece68d903f74a0d823bff9ff.ctex"
+uid="uid://drwuvstfe8nx2"
+path="res://.godot/imported/ban icon.png-388be342cf0352452997c8048a2e9fef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icons8-camera-50.png"
-dest_files=["res://.godot/imported/icons8-camera-50.png-2b5601abece68d903f74a0d823bff9ff.ctex"]
+source_file="res://DATABASE assets/assets/ban icon.png"
+dest_files=["res://.godot/imported/ban icon.png-388be342cf0352452997c8048a2e9fef.ctex"]
 
 [params]
 

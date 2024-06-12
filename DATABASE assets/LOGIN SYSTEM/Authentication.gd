@@ -9,12 +9,14 @@ func _ready():
 	Firebase.Auth.signup_failed.connect(onSignUpFailed)
 	
 	if Firebase.Auth.check_auth_file():
-		if Firebase.Auth.auth["email"].contains("admin"):
+		if Firebase.Auth.auth["localid"].contains("tA3JEnuuikgAUc9vn2ffKCx85yE3"):
 			DbGlobals.isAdmin = true
 			%StateLabel.text = "Admin Logged In Success!"
+			await get_tree().create_timer(1.00).timeout
 			get_tree().change_scene_to_file("res://DATABASE assets/HOMEPAGE/Homepage.tscn")
 		else:
 			%StateLabel.text = "Logged In Success!"
+			await get_tree().create_timer(1.00).timeout
 			get_tree().change_scene_to_file("res://DATABASE assets/HOMEPAGE/Homepage.tscn")
 
 func _on_log_in_pressed():
@@ -51,14 +53,16 @@ func onLoginSucceeded(auth):
 			var document = finishedTask.document
 			var passcode = document.doc_fields["passcode"]
 			if %AdminPassLineEdit.text == passcode:
-				%StateLabel.text = "Admin login success."
 				DbGlobals.isAdmin = true
+				%StateLabel.text = "Loading..."
+				await get_tree().create_timer(1.00).timeout
 				get_tree().change_scene_to_file("res://DATABASE assets/HOMEPAGE/Homepage.tscn")
 			else:
 				%StateLabel.text = "Enter the correct passcode to login as admin."
 				return
 	else:
-		%StateLabel.text = "Login success!"
+		%StateLabel.text = "Loading..."
+		await get_tree().create_timer(1.00).timeout
 		get_tree().change_scene_to_file("res://DATABASE assets/HOMEPAGE/Homepage.tscn")
 
 func onSignUpSucceeded(auth):

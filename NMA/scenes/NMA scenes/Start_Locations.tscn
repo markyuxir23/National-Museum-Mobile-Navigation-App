@@ -6,7 +6,8 @@
 [node name="StartButtons" type="VBoxContainer"]
 script = ExtResource("1_j5kb2")
 
-[node name="Button" type="Button" parent="."]
+[node name="OGButton" type="Button" parent="."]
+visible = false
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("2_6w71g")

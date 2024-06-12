@@ -6,9 +6,9 @@ extends VBoxContainer
 @onready var _4fLocations = preload("res://NMA/scenes/NMA scenes/4f_locations.tscn").instantiate().get_children()
 signal buttonPressed(buttonName)
 
-
 var restrictDB = Firebase.Database.get_database_reference("restrictedData/Galleries/")
 var restrictData: Dictionary
+
 
 var include2F = true
 var include3F = true
@@ -16,19 +16,24 @@ var include4F = true
 
 var currentGalleries
 var currentTag
+var i = "start"
 
 @export var _2F_Tag: Texture
 @export var _3F_Tag: Texture
 @export var _4F_Tag: Texture
 
 func _ready():
-	if origin.is_in_group("2F"):
-		_on_option_button_item_selected(0)
-	if origin.is_in_group("3F"):
-		_on_option_button_item_selected(1)
-	if origin.is_in_group("4F"):
-		_on_option_button_item_selected(2)
-		
+	if i == "start":
+		if origin.is_in_group("2F"):
+			currentGalleries = _2fLocations
+			currentTag = _4F_Tag
+		if origin.is_in_group("3F"):
+			currentGalleries = _3fLocations
+			currentTag = _4F_Tag
+		if origin.is_in_group("4F"):
+			currentGalleries = _4fLocations
+			currentTag = _4F_Tag
+
 	restrictDB.update("dummy", {0:0})
 	
 	restrictDB.new_data_update.connect(updateData)
@@ -64,6 +69,7 @@ func emitName(buttonName):
 	emit_signal("buttonPressed", buttonName)
 
 func _on_option_button_item_selected(index):
+	restrictDB.push({"restrict":0})
 	if index == 0:
 		currentGalleries = _2fLocations
 		currentTag = _2F_Tag
@@ -72,7 +78,9 @@ func _on_option_button_item_selected(index):
 				continue
 			else:
 				child.queue_free()
-		constructButtons(_2fLocations, _2F_Tag)
+		restrictDB.delete("restrict")
+		constructButtons(currentGalleries, currentTag)
+
 	if index == 1:
 		currentGalleries = _3fLocations
 		currentTag = _3F_Tag
@@ -81,7 +89,9 @@ func _on_option_button_item_selected(index):
 				continue
 			else:
 				child.queue_free()
-		constructButtons(_3fLocations, _3F_Tag)
+		restrictDB.delete("restrict")
+		constructButtons(currentGalleries, currentTag)
+
 	if index == 2:
 		currentGalleries = _4fLocations
 		currentTag = _4F_Tag
@@ -90,4 +100,5 @@ func _on_option_button_item_selected(index):
 				continue
 			else:
 				child.queue_free()
-		constructButtons(_4fLocations, _4F_Tag)
+		restrictDB.delete("restrict")
+		constructButtons(currentGalleries, currentTag)

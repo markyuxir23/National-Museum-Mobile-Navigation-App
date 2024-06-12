@@ -29,11 +29,11 @@ func _ready():
 	for gallery in galleryData:
 		if Globals.gallery_name == gallery:
 			for key in galleryData[gallery]:
-				if hallLabel.text == "":
-					hallLabel.text = str(galleryData[gallery][key]["gallery_hallname"])
-					infoLabel.text = str(galleryData[gallery][key]["gallery_info"])
+				if galleryData[gallery][key]["gallery_hallname"]:
+					if hallLabel.text == "":
+						hallLabel.text = str(galleryData[gallery][key]["gallery_hallname"])
+						infoLabel.text = str(galleryData[gallery][key]["gallery_info"])
 				currentArts.append(galleryData[gallery][key])
-	
 	getCurrentArtworks()
 
 	newPath.new_data_update.connect(getDocument)

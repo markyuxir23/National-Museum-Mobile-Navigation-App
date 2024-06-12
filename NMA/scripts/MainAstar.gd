@@ -85,7 +85,9 @@ func _ready():
 		var gallerypanel = get_node("UI/GalleryInfo")
 		var galleryPos = (GlobalsNMA.see_on_map_gallery).global_position
 		gallerypanel._on_gallery_manager_gallery_pressed(GlobalsNMA.see_on_map_gallery.name, galleryPos)
-
+	await get_tree().create_timer(1.00).timeout
+	%LoadingScreen.hide()
+	
 func tweenOnPosition(tweenPos: Vector2):
 	var tween = get_tree().create_tween()
 	var zoom = Vector2(1.5, 1.5)

@@ -1,12 +1,10 @@
 extends PanelContainer
 
-@onready var picture = %Picture
 @onready var title = %Title
 @onready var artist = %Artist
 @onready var date = %Date
 @onready var place = %Place
 @onready var type = %Type
-@onready var image_scene = preload("res://picture.tscn")
 @onready var properties = [title, artist, date, place,type]
 
 func display(art:Dictionary):
@@ -14,7 +12,7 @@ func display(art:Dictionary):
 		if key == null:
 			art[key] = ""
 		for item in properties:
-			if key.contains((item.name).to_lower()):
+			if str(key).contains((item.name).to_lower()):
 				item.text = str(art[key])
 
 func search(text: String):

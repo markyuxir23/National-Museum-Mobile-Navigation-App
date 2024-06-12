@@ -1,14 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://djbpxpa047qip"]
+[gd_scene load_steps=7 format=3 uid="uid://djbpxpa047qip"]
 
 [ext_resource type="Script" path="res://NMA/scripts/ArtworkCard.gd" id="1_jl1y5"]
 [ext_resource type="Texture2D" uid="uid://c8o5kcvo0wjbc" path="res://NMFA/assets/xmark-solid.svg" id="2_nvym7"]
 [ext_resource type="FontFile" uid="uid://bf71avij7roaf" path="res://NMFA/themes/FONTS/Minion/minionexp-semibolditalic.otf" id="3_nimsb"]
 [ext_resource type="Texture2D" uid="uid://uty7hhthws0y" path="res://NMA/assets/sample pic.jpg" id="4_m85p6"]
-[ext_resource type="Texture2D" uid="uid://c1qp0oxwiloqt" path="res://heart outline.png" id="4_wurqv"]
 [ext_resource type="Texture2D" uid="uid://bwkx2o5buf1ii" path="res://NMFA/assets/info icon.png" id="5_n1qi7"]
-[ext_resource type="Texture2D" uid="uid://gblfum0bsph6" path="res://heart.png" id="5_nylvf"]
 [ext_resource type="Texture2D" uid="uid://bpgihosg2ugff" path="res://NMFA/assets/info icon black.png" id="6_5xfxy"]
-[ext_resource type="Texture2D" uid="uid://dmijxtb4qsy35" path="res://dislike.png" id="6_vqn5n"]
 
 [node name="ArtworkCard" type="MarginContainer"]
 size_flags_horizontal = 3
@@ -77,29 +74,6 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.25
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_bottom = 10
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ArtInfoPanel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 30
-
-[node name="Recommend" type="TextureButton" parent="ArtInfoPanel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.2
-toggle_mode = true
-texture_normal = ExtResource("4_wurqv")
-texture_pressed = ExtResource("5_nylvf")
-stretch_mode = 5
-
-[node name="RemoveRecom" type="TextureButton" parent="ArtInfoPanel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.2
-texture_normal = ExtResource("6_vqn5n")
-stretch_mode = 5
 
 [node name="Control2" type="Control" parent="ArtInfoPanel/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -189,6 +163,4 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="pressed" from="ArtInfoPanel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="ArtInfoPanel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/Recommend" to="." method="_on_recommend_pressed"]
-[connection signal="pressed" from="ArtInfoPanel/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/RemoveRecom" to="." method="_on_remove_recom_pressed"]
 [connection signal="pressed" from="Artwork/InfoButton" to="." method="_on_info_button_pressed"]

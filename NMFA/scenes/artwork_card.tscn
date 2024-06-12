@@ -5,9 +5,9 @@
 [ext_resource type="Script" path="res://NMFA/scripts/ArtworkCard.gd" id="2_3j3sg"]
 [ext_resource type="Texture2D" uid="uid://bpgihosg2ugff" path="res://NMFA/assets/info icon black.png" id="3_csopc"]
 [ext_resource type="Texture2D" uid="uid://c8o5kcvo0wjbc" path="res://NMFA/assets/xmark-solid.svg" id="4_d0mb4"]
-[ext_resource type="Texture2D" uid="uid://c1qp0oxwiloqt" path="res://heart outline.png" id="4_pcc5c"]
-[ext_resource type="Texture2D" uid="uid://gblfum0bsph6" path="res://heart.png" id="5_7yvcp"]
-[ext_resource type="Texture2D" uid="uid://dmijxtb4qsy35" path="res://dislike.png" id="6_i0km7"]
+[ext_resource type="Texture2D" uid="uid://c1qp0oxwiloqt" path="res://DATABASE assets/assets/heart outline.png" id="4_pcc5c"]
+[ext_resource type="Texture2D" uid="uid://gblfum0bsph6" path="res://DATABASE assets/assets/heart.png" id="5_7yvcp"]
+[ext_resource type="Texture2D" uid="uid://dmijxtb4qsy35" path="res://DATABASE assets/assets/dislike.png" id="6_i0km7"]
 [ext_resource type="FontFile" uid="uid://bf71avij7roaf" path="res://NMFA/themes/FONTS/Minion/minionexp-semibolditalic.otf" id="6_vnod6"]
 
 [node name="ArtworkCard" type="MarginContainer"]

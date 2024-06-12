@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://d0df4wmptpgnp" path="res://NMFA/scenes/artwork_card.tscn" id="3_vr1l5"]
 [ext_resource type="Texture2D" uid="uid://cv51i5fcnfdgv" path="res://NMFA/assets/right icon.png" id="4_c2rpy"]
 [ext_resource type="Theme" uid="uid://x1am6muet8c0" path="res://NMFA/themes/InventoryPageButtonTheme.tres" id="4_hggb4"]
-[ext_resource type="Texture2D" uid="uid://dn2fc36q4ve8j" path="res://icons8-arrow-left-100.png" id="9_1ue5r"]
-[ext_resource type="Texture2D" uid="uid://cajsp0tf8r6v2" path="res://icons8-arrow-right-100.png" id="10_3lpbt"]
+[ext_resource type="Texture2D" uid="uid://dn2fc36q4ve8j" path="res://DATABASE assets/assets/icons8-arrow-left-100.png" id="9_1ue5r"]
+[ext_resource type="Texture2D" uid="uid://cajsp0tf8r6v2" path="res://DATABASE assets/assets/icons8-arrow-right-100.png" id="10_3lpbt"]
 
 [sub_resource type="Theme" id="Theme_1os2d"]
 Button/font_sizes/font_size = 100

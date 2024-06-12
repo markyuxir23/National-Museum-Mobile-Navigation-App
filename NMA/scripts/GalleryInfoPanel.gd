@@ -110,7 +110,7 @@ func _on_see_on_map_pressed():
 func getDocument(document):
 	var auth = Firebase.Auth.auth
 	print("NEW_DATA: ", document)
-	var fullData = newPath.keys()
+	var fullData = newPath.get_data()
 	for key in fullData.keys():
 		if galleryLabel.text == key:
 			%Visited.hide()
