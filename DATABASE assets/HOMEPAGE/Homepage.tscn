@@ -676,6 +676,7 @@ theme_override_constants/separation = 40
 
 [node name="AddGalleryContainer" type="PanelContainer" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddGalleryContainer"]
@@ -757,31 +758,31 @@ text = "Cancel"
 icon = ExtResource("16_63vte")
 flat = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer"]
+[node name="SearchBar" type="HBoxContainer" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.04
 theme_override_constants/separation = 40
 
-[node name="Back" type="Button" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="Back" type="Button" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/SearchBar"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 icon = ExtResource("11_k4erv")
 flat = true
 
-[node name="Control" type="LineEdit" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="Control" type="LineEdit" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/SearchBar"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.85
 
-[node name="Refresh" type="Button" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="Refresh" type="Button" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/SearchBar"]
 unique_name_in_owner = true
 layout_mode = 2
 icon = ExtResource("14_w7yjm")
 flat = true
 
-[node name="Close" type="Button" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="Close" type="Button" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/SearchBar"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -790,6 +791,99 @@ icon = ExtResource("9_b88ne")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="AddArtworkContainer" type="PanelContainer" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddArtworkContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="NewArtworkLines" type="VBoxContainer" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddArtworkContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 40
+
+[node name="NewArtworkTitleLine" type="TextEdit" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddArtworkContainer/VBoxContainer/NewArtworkLines"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+wrap_mode = 1
+
+[node name="NewArtworkArtistLine" type="TextEdit" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddArtworkContainer/VBoxContainer/NewArtworkLines"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+wrap_mode = 1
+
+[node name="NewArtworkDateLine" type="TextEdit" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddArtworkContainer/VBoxContainer/NewArtworkLines"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+wrap_mode = 1
+
+[node name="NewArtworkPlaceLine" type="TextEdit" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddArtworkContainer/VBoxContainer/NewArtworkLines"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+wrap_mode = 1
+
+[node name="NewArtworkTypeLine" type="TextEdit" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddArtworkContainer/VBoxContainer/NewArtworkLines"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 40
+wrap_mode = 1
+
+[node name="AddArtwork" type="Button" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddArtworkContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+text = "Add New Artwork"
+
+[node name="NewArtworkSaveCancel" type="HBoxContainer" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddArtworkContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="NewArtworkSave" type="Button" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddArtworkContainer/VBoxContainer/NewArtworkSaveCancel"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Save"
+icon = ExtResource("15_payc1")
+flat = true
+
+[node name="NewArtworkCancel" type="Button" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddArtworkContainer/VBoxContainer/NewArtworkSaveCancel"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Cancel"
+icon = ExtResource("16_63vte")
+flat = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer"]
 layout_mode = 2
@@ -982,10 +1076,13 @@ layout_mode = 2
 [connection signal="pressed" from="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddGalleryContainer/VBoxContainer/AddGallery" to="." method="_on_add_gallery_pressed"]
 [connection signal="pressed" from="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddGalleryContainer/VBoxContainer/NewGallerySaveCancel/NewGallerySave" to="." method="_on_new_gallery_save_pressed"]
 [connection signal="pressed" from="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddGalleryContainer/VBoxContainer/NewGallerySaveCancel/NewGalleryCancel" to="." method="_on_new_gallery_cancel_pressed"]
-[connection signal="pressed" from="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/HBoxContainer/Back" to="." method="_on_back_pressed"]
-[connection signal="text_changed" from="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/HBoxContainer/Control" to="." method="_on_control_text_changed"]
-[connection signal="pressed" from="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/HBoxContainer/Refresh" to="." method="_on_refresh_pressed"]
-[connection signal="pressed" from="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/HBoxContainer/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/SearchBar/Back" to="." method="_on_back_pressed"]
+[connection signal="text_changed" from="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/SearchBar/Control" to="." method="_on_control_text_changed"]
+[connection signal="pressed" from="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/SearchBar/Refresh" to="." method="_on_refresh_pressed"]
+[connection signal="pressed" from="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/SearchBar/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddArtworkContainer/VBoxContainer/AddArtwork" to="." method="_on_add_artwork_pressed"]
+[connection signal="pressed" from="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddArtworkContainer/VBoxContainer/NewArtworkSaveCancel/NewArtworkSave" to="." method="_on_new_artwork_save_pressed"]
+[connection signal="pressed" from="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/AddArtworkContainer/VBoxContainer/NewArtworkSaveCancel/NewArtworkCancel" to="." method="_on_new_artwork_cancel_pressed"]
 [connection signal="pressed" from="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/ScrollContainer/GalleryScroll/GalleryInfoCard/Container/GalleryWarning/Yes" to="." method="_on_yes_pressed"]
 [connection signal="pressed" from="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/ScrollContainer/GalleryScroll/GalleryInfoCard/Container/GalleryWarning/No" to="." method="_on_no_pressed"]
 [connection signal="pressed" from="VBoxContainer/Body/SearchScene/PanelContainer/VBoxContainer/ScrollContainer/GalleryScroll/GalleryInfoCard/Container/GalleryEditDelete/Edit" to="." method="_on_edit_pressed"]

@@ -23,7 +23,7 @@ extends Control
 @onready var onArtworks = false
 
 signal editButtonPressed(galleryName)
-signal saveArtwork(artworkName)
+signal saveArtwork(artworkName, artworkTitle, artworkArtist, artworkDate, artworkPlace, artworkType, cancelLabelLines, cancelLabels, cancelWarning, cancelButtons, savecancelButtons)
 signal deleteArtwork(artworkName)
 
 func _ready():
@@ -191,9 +191,11 @@ func _on_back_pressed():
 	if galleryChoice:
 		_on_edit_nmfa_pressed()
 		%Back.hide()
+		%AddArtworkContainer.hide()
 	if not galleryChoice:
 		_on_edit_nma_pressed()
 		%Back.hide()
+		%AddArtworkContainer.hide()
 	
 func _on_control_text_changed(new_text):
 	new_text = new_text.to_lower()
@@ -211,8 +213,11 @@ func _on_control_text_changed(new_text):
 			else:
 				i.hide()
 
+
 #ARTWORK FUNCS#############
 func _on_edit_button_pressed(galleryName):
+	onArtworks = true
+	%AddArtworkContainer.show()
 	var dataSourceNMFA = dbNMFA.get_data()
 	var dataSourceNMA = dbNMA.get_data()
 	
@@ -246,26 +251,66 @@ func _on_edit_button_pressed(galleryName):
 		%GalleryScroll.add_child(art)
 		art.display(selected)
 		var saveButton = art.get_node("VBoxContainer/SaveCancelButtons/Save")
-		var deleteButton = art.get_node("VBoxContainer/HBoxContainer/WarningContainer/Yes")
-		deleteButton.pressed.connect(self.emitToDelete.bind(artSource[artwork]["art_title"]))
-		saveButton.pressed.connect(self.emitToSave.bind(artSource[artwork]["art_title"]))
+		var deleteButton = art.get_node("VBoxContainer/MainContainer/WarningContainer/Yes")
+		var properties = art.get_node("VBoxContainer/MainContainer/LabelLines")
+		var cancelProperties = art.get_node("VBoxContainer/MainContainer")
+		var savecancelButtons = art.get_node("VBoxContainer/SaveCancelButtons")
+		deleteButton.pressed.connect(self.emitToDelete.bind(artwork))
+		saveButton.pressed.connect(self.emitToSave.bind(artwork, 
+						properties.get_child(0), properties.get_child(1), properties.get_child(2)
+						, properties.get_child(3), properties.get_child(4), cancelProperties.get_child(0),
+						cancelProperties.get_child(1), cancelProperties.get_child(2), 
+						cancelProperties.get_child(3), savecancelButtons))
 		
+
 func _on_delete_artwork(artworkName):
-	print("DELETE: ", artworkName)
+	if galleryChoice:
+		dbNMFA.delete(currentGallery + "/" + artworkName)
+	elif not galleryChoice:
+		dbNMA.delete(currentGallery + "/" + artworkName)
+	_on_edit_button_pressed(currentGallery)
 	
-func _on_save_artwork(artworkName):
-	print("SAVE: ", artworkName)
+func _on_save_artwork(artworkName, artworkTitle, artworkArtist, artworkDate, artworkPlace, artworkType, cancelLabelLines, cancelLabels, cancelWarning, cancelButtons, savecancelButtons):
+	var artworkSource
+	var artwork
+	var dataNMFA = dbNMFA.get_data()
+	var dataNMA = dbNMA.get_data()
+	
+	if galleryChoice:
+		artworkSource = dataNMFA[currentGallery][artworkName]
+
+	elif not galleryChoice:
+		artworkSource = dataNMA[currentGallery][artworkName]
+	
+	var updatedArtwork = {
+				"art_title": artworkTitle.text,
+				"art_artist": artworkArtist.text,
+				"art_date": artworkDate.text,
+				"art_place": artworkPlace.text,
+				"art_type": artworkType.text,
+				"gallery_hallname" : artworkSource["gallery_hallname"],
+				"gallery_info" : artworkSource["gallery_info"]
+		}
+	
+	if galleryChoice:
+		dbNMFA.update(currentGallery + "/" + artworkName, updatedArtwork)
+	elif not galleryChoice:
+		dbNMA.update(currentGallery + "/" + artworkName, updatedArtwork)
+	
+	cancelLabels.show()
+	cancelWarning.hide()
+	cancelButtons.show()
+	cancelLabelLines.hide()
+	savecancelButtons.hide()
 
 func emitGalleryName(galleryName):
 	emit_signal("editButtonPressed", galleryName)
 
 func emitToDelete(artworkName):
 	emit_signal("deleteArtwork", artworkName)
-	
-func emitToSave(artworkName):
-	emit_signal("saveArtwork", artworkName)
 
-
+func emitToSave(artworkName, artworkTitle, artworkArtist, artworkDate, artworkPlace, artworkType, cancelLabelLines, cancelLabels, cancelWarning, cancelButtons, savecancelButtons):
+	emit_signal("saveArtwork", artworkName, artworkTitle, artworkArtist, artworkDate, artworkPlace, artworkType, cancelLabelLines, cancelLabels, cancelWarning, cancelButtons, savecancelButtons)
 
 #GALLERY EDITS FUNCS ###############################3
 func _on_delete_pressed():
@@ -338,7 +383,8 @@ func _on_yes_pressed():
 		dbNMA.delete(currentGallery)
 	_on_back_pressed()
 
-#ADD GALLERY FUNCS###################3
+
+#ADD GALLERY FUNCS###################
 func _on_add_gallery_pressed():
 	%AddGallery.hide()
 	%NewGallerySaveCancel.show()
@@ -373,6 +419,60 @@ func _on_new_gallery_save_pressed():
 
 func _on_refresh_pressed():
 	if onArtworks:
-		pass
+		_on_edit_button_pressed(currentGallery)
 	elif not onArtworks:
 		_on_back_pressed()
+
+#ADD ARTWORK FUNCS#####################
+func _on_add_artwork_pressed():
+	%AddArtwork.hide()
+	%NewArtworkSaveCancel.show()
+	%NewArtworkTitleLine.text = "NEW ARTWORK TITLE"
+	%NewArtworkArtistLine.text = "NEW ARTWORK ARTIST"
+	%NewArtworkDateLine.text = "NEW ARTWORK DATE"
+	%NewArtworkPlaceLine.text = "NEW ARTWORK PLACE"
+	%NewArtworkTypeLine.text = "NEW ARTWORK TYPE"
+	%NewArtworkLines.show()
+
+func _on_new_artwork_cancel_pressed():
+	%NewArtworkSaveCancel.hide()
+	%NewArtworkLines.hide()
+	%AddArtwork.show()
+
+func _on_new_artwork_save_pressed():
+	var dataNMFA = dbNMFA.get_data()
+	var dataNMA = dbNMA.get_data()
+	var lead
+	var galleryCode
+	var gallerySize
+	
+	if galleryChoice:
+		lead = dataNMFA[currentGallery].keys()[0]
+		galleryCode = str(lead).replace("_1", "")
+		gallerySize = dataNMFA[currentGallery].keys().size()
+	elif not galleryChoice:
+		lead = dataNMA[currentGallery].keys()[0]
+		galleryCode = str(lead).replace("_1", "")
+		gallerySize = dataNMA[currentGallery].keys().size()
+
+	var newArtwork = { galleryCode + "_" + str(gallerySize + 1): {
+				"art_title": %NewArtworkTitleLine.text,
+				"art_artist": %NewArtworkArtistLine.text,
+				"art_date": %NewArtworkDateLine.text,
+				"art_place": %NewArtworkPlaceLine.text,
+				"art_type": %NewArtworkTypeLine.text,
+				"gallery_hallname": " ",
+				"gallery_info": " ",
+			}
+		}
+	
+	if galleryChoice:
+		dbNMFA.update(currentGallery, newArtwork)
+	if not galleryChoice:
+		dbNMA.update(currentGallery, newArtwork)
+	_on_new_artwork_cancel_pressed()
+
+
+
+
+

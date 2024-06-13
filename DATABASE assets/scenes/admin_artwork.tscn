@@ -42,18 +42,18 @@ script = ExtResource("1_r6agd")
 layout_mode = 2
 theme_override_constants/separation = 60
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="MainContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="LabelLines" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="LabelLines" type="VBoxContainer" parent="VBoxContainer/MainContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 40
 
-[node name="TitleLine" type="TextEdit" parent="VBoxContainer/HBoxContainer/LabelLines"]
+[node name="TitleLine" type="TextEdit" parent="VBoxContainer/MainContainer/LabelLines"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
@@ -62,7 +62,7 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 40
 wrap_mode = 1
 
-[node name="ArtistLine" type="TextEdit" parent="VBoxContainer/HBoxContainer/LabelLines"]
+[node name="ArtistLine" type="TextEdit" parent="VBoxContainer/MainContainer/LabelLines"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
@@ -71,7 +71,7 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 40
 wrap_mode = 1
 
-[node name="DateLine" type="LineEdit" parent="VBoxContainer/HBoxContainer/LabelLines"]
+[node name="DateLine" type="LineEdit" parent="VBoxContainer/MainContainer/LabelLines"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
@@ -80,7 +80,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 theme_override_font_sizes/font_size = 30
 
-[node name="PlaceLine" type="LineEdit" parent="VBoxContainer/HBoxContainer/LabelLines"]
+[node name="PlaceLine" type="LineEdit" parent="VBoxContainer/MainContainer/LabelLines"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
@@ -89,7 +89,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 theme_override_font_sizes/font_size = 30
 
-[node name="TypeLine" type="LineEdit" parent="VBoxContainer/HBoxContainer/LabelLines"]
+[node name="TypeLine" type="LineEdit" parent="VBoxContainer/MainContainer/LabelLines"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
@@ -98,14 +98,14 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 theme_override_font_sizes/font_size = 30
 
-[node name="Labels" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="Labels" type="VBoxContainer" parent="VBoxContainer/MainContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 10
 
-[node name="Title" type="Label" parent="VBoxContainer/HBoxContainer/Labels"]
+[node name="Title" type="Label" parent="VBoxContainer/MainContainer/Labels"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
@@ -119,7 +119,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Artist" type="Label" parent="VBoxContainer/HBoxContainer/Labels"]
+[node name="Artist" type="Label" parent="VBoxContainer/MainContainer/Labels"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
@@ -133,7 +133,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Date" type="Label" parent="VBoxContainer/HBoxContainer/Labels"]
+[node name="Date" type="Label" parent="VBoxContainer/MainContainer/Labels"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
@@ -147,7 +147,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Place" type="Label" parent="VBoxContainer/HBoxContainer/Labels"]
+[node name="Place" type="Label" parent="VBoxContainer/MainContainer/Labels"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
@@ -161,7 +161,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Type" type="Label" parent="VBoxContainer/HBoxContainer/Labels"]
+[node name="Type" type="Label" parent="VBoxContainer/MainContainer/Labels"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
@@ -175,7 +175,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="WarningContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="WarningContainer" type="VBoxContainer" parent="VBoxContainer/MainContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -183,7 +183,7 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="Warning" type="Label" parent="VBoxContainer/HBoxContainer/WarningContainer"]
+[node name="Warning" type="Label" parent="VBoxContainer/MainContainer/WarningContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
@@ -193,14 +193,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Yes" type="Button" parent="VBoxContainer/HBoxContainer/WarningContainer"]
+[node name="Yes" type="Button" parent="VBoxContainer/MainContainer/WarningContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
 text = "YES"
 
-[node name="No" type="Button" parent="VBoxContainer/HBoxContainer/WarningContainer"]
+[node name="No" type="Button" parent="VBoxContainer/MainContainer/WarningContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -208,7 +208,7 @@ size_flags_vertical = 6
 size_flags_stretch_ratio = 0.3
 text = "NO"
 
-[node name="EditDeleteButtons" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="EditDeleteButtons" type="VBoxContainer" parent="VBoxContainer/MainContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -217,7 +217,7 @@ size_flags_stretch_ratio = 0.2
 theme_override_constants/separation = 40
 alignment = 2
 
-[node name="Edit" type="Button" parent="VBoxContainer/HBoxContainer/EditDeleteButtons"]
+[node name="Edit" type="Button" parent="VBoxContainer/MainContainer/EditDeleteButtons"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -227,7 +227,7 @@ icon = ExtResource("3_4p623")
 flat = true
 alignment = 0
 
-[node name="Delete" type="Button" parent="VBoxContainer/HBoxContainer/EditDeleteButtons"]
+[node name="Delete" type="Button" parent="VBoxContainer/MainContainer/EditDeleteButtons"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -263,7 +263,7 @@ text = "Cancel"
 icon = ExtResource("5_mm1vr")
 flat = true
 
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/WarningContainer/No" to="." method="_on_no_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/EditDeleteButtons/Edit" to="." method="_on_edit_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/EditDeleteButtons/Delete" to="." method="_on_delete_pressed"]
+[connection signal="pressed" from="VBoxContainer/MainContainer/WarningContainer/No" to="." method="_on_no_pressed"]
+[connection signal="pressed" from="VBoxContainer/MainContainer/EditDeleteButtons/Edit" to="." method="_on_edit_pressed"]
+[connection signal="pressed" from="VBoxContainer/MainContainer/EditDeleteButtons/Delete" to="." method="_on_delete_pressed"]
 [connection signal="pressed" from="VBoxContainer/SaveCancelButtons/Cancel" to="." method="_on_cancel_pressed"]
